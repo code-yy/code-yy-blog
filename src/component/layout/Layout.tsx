@@ -34,7 +34,7 @@ export const Layout: GetLayout = (page: ReactElement) => {
           siteName: "code-yy-blog",
         }}
         twitter={{
-          card: "summary",
+          card: "summary_large_image",
         }}
         customLinkTags={[
           {
