@@ -30,7 +30,7 @@ export const Layout: GetLayout = (page: ReactElement) => {
           title: "code-yy-blog",
           url: "https://code-yy-blog-git-feature-ogp-test-code-yy.vercel.app/",
           image: "/god.png",
-          type: "article",
+          type: "website",
           siteName: "code-yy-blog",
         }}
         twitter={{
