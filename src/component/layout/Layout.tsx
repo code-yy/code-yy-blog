@@ -29,7 +29,10 @@ export const Layout: GetLayout = (page: ReactElement) => {
         <meta property="og:description" content={"code-yy-blog"} />
         <meta property="og:type" content={"website"} />
         <meta property="og:url" content={"https://code-yy-blog-git-feature-ogp-test-code-yy.vercel.app/"} />
-        <meta property="og:image" content={"/god.png"} />
+        <meta
+          property="og:image"
+          content={"https://pbs.twimg.com/profile_images/1549454971833200640/s2Ut8p5O_400x400.jpg"}
+        />
         <meta property="og:site_name" content={"code-yy-blog"} />
         <meta name="twitter:site" content="@codeyy_dev" />
         <meta name="twitter:card" content={"summary"} />
