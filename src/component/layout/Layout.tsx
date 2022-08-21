@@ -28,13 +28,14 @@ export const Layout: GetLayout = (page: ReactElement) => {
         robots={"noindex, nofollow"}
         og={{
           title: "code-yy-blog",
-          url: "http://localhost:3000/blogs/page/1",
+          url: "https://code-yy-blog-git-feature-ogp-test-code-yy.vercel.app/",
           image: "/god.png",
           type: "article",
           siteName: "code-yy-blog",
         }}
         twitter={{
           card: "summary_large_image",
+          site: "@codeyy_dev",
         }}
         customLinkTags={[
           {
