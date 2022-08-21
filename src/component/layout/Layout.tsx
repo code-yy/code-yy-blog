@@ -1,5 +1,5 @@
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
-import Head from "next/head";
+import NextHeadSeo from "next-head-seo";
 import { ReactElement, useEffect, useState } from "react";
 import { GetLayout } from "@/type/next-type";
 import { AppLoading } from "../ui/AppLoading";
@@ -21,10 +21,30 @@ export const Layout: GetLayout = (page: ReactElement) => {
 
   return (
     <>
-      <Head>
-        <title>Code yy</title>
-        <link rel="icon" type="image/png" sizes="16x16" href="/god.png" />
-      </Head>
+      <NextHeadSeo
+        title="code-yy-blog"
+        description="code-yy-blog"
+        canonical="/god.png"
+        robots={"noindex, nofollow"}
+        og={{
+          title: "code-yy-blog",
+          url: "http://localhost:3000/blogs/page/1",
+          image: "/god.png",
+          type: "article",
+          siteName: "code-yy-blog",
+        }}
+        twitter={{
+          card: "summary",
+        }}
+        customLinkTags={[
+          {
+            rel: "icon",
+            type: "image/png",
+            href: "/god.png",
+            sizes: "16x16",
+          },
+        ]}
+      />
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
           <Header />
