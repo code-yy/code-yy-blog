@@ -2,9 +2,8 @@ import { Header as MantineHeader, Container, ActionIcon, Group, useMantineColorS
 import { Sun, MoonStars } from "tabler-icons-react";
 import { FC } from "react";
 import { LINK } from "@/constant/link";
-import { AppLink } from "../ui/AppLink";
-import { SnsIcon } from "../feature/SnsIcon";
-import { ProfileIcon } from "../ui/ProfileIcon";
+import { AppLink, ProfileIcon } from "@/component/ui";
+import { SnsIcon } from "@/component/feature/SnsIcon";
 
 const NavList = [
   {
