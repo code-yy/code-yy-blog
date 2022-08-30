@@ -23,7 +23,7 @@ export const Header: FC = () => {
 
   return (
     <MantineHeader height={56} className="mb-4 md:mb-8">
-      <Container className="flex justify-between items-center h-[56px]">
+      <Container className="flex h-[56px] items-center justify-between">
         <Menu className="block sm:hidden">
           {NavList.map((item) => (
             <Menu.Item key={item.label}>
@@ -37,7 +37,7 @@ export const Header: FC = () => {
               <AppLink
                 key={label}
                 href={link}
-                className={`block py-2 px-3 font-medium leading-[1] dark:text-gray-700 decoration-[none]  ${
+                className={`decoration-[none] block py-2 px-3 font-medium leading-[1] dark:text-gray-700  ${
                   dark ? "hover:bg-blue-500" : "hover:bg-gray-100"
                 }`}
               >
@@ -47,12 +47,12 @@ export const Header: FC = () => {
           })}
         </Group>
         <Group>
-          <div className="hidden items-center w-11 h-11 sm:flex">
+          <div className="hidden h-11 w-11 items-center sm:flex">
             <ProfileIcon />
           </div>
         </Group>
         <Group spacing={0} className="w-[260px]" position="right" noWrap>
-          <div className="flex mr-3">
+          <div className="mr-3 flex">
             <SnsIcon />
           </div>
           <ActionIcon

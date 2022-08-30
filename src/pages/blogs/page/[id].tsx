@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { client } from "@/lib/microCMS/client";
+import { client } from "@/lib/microcms-client";
 import { Layout } from "@/component/layout";
 import { Blogs } from "@/type/blog";
 import { NextPageWithLayout } from "@/type/next-type";
-import { BlogList } from "@/component/page/BlogList";
+import { BlogList } from "@/component/page/blogs/blogs";
 
 export type Props = {
   blogs: Blogs;
