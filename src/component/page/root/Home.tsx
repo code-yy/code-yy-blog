@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useMantineColorScheme } from "@mantine/core";
 import { FC, useEffect, useState } from "react";
-import { AppLoading } from "../ui/AppLoading";
+import { AppLoading } from "../../ui/AppLoading";
 
 export const Home: FC = () => {
   const [loading, setLoading] = useState(true);
@@ -15,11 +15,11 @@ export const Home: FC = () => {
   if (loading) return <AppLoading />;
 
   return (
-    <div className="flex flex-wrap px-2 mx-auto max-w-none sm:px-8 lg:max-w-12%">
-      <div className="p-5 border sm:p-10">
+    <div className="mx-auto flex max-w-none flex-wrap px-2 sm:px-8 lg:max-w-12%">
+      <div className="border p-5 sm:p-10">
         <div className="flex flex-col">
           <h1 className="mr-2 mb-3 text-xl font-bold sm:text-3xl">My name is Yuto Yoshino</h1>
-          <div className="flex gap-1 mb-3 sm:gap-3">
+          <div className="mb-3 flex gap-1 sm:gap-3">
             <a href="https://www.twitter.com/codeyy_dev" target="_blank" rel="noreferrer">
               <img
                 src="https://img.shields.io/twitter/follow/codeyy_dev?logo=twitter&style=for-the-badge&color=0891b2&labelColor=1c1917"
@@ -184,7 +184,7 @@ export const Home: FC = () => {
               alt="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github-dark.svg"
               width="32"
               height="32"
-              className={`${dark ? "bg-transparent" : "bg-gray-500 rounded-md"}`}
+              className={`${dark ? "bg-transparent" : "rounded-md bg-gray-500"}`}
             />
           </a>
           <a href="https://www.twitter.com/codeyy_dev" target="_blank" rel="noreferrer">
