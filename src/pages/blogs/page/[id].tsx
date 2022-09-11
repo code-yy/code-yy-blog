@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { client } from "@/lib/microcms-client";
-import { Layout } from "@/component/layout";
+import { Head, Layout } from "@/component/layout";
 import { Blogs } from "@/type/blog";
 import { BlogList } from "@/component/page/blogs/blogs";
 
@@ -46,9 +46,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 const BlogListPage: NextPage<Props> = ({ blogs }) => {
   return (
-    <Layout>
-      <BlogList blogs={blogs} />
-    </Layout>
+    <>
+      <Head />
+      <Layout>
+        <BlogList blogs={blogs} />
+      </Layout>
+    </>
   );
 };
 
