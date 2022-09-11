@@ -1,10 +1,8 @@
-import { GetStaticProps, GetStaticPaths } from "next/types";
+import { GetStaticProps, GetStaticPaths, NextPage } from "next/types";
 import { Layout } from "@/component/layout";
 import { Blog, Blogs } from "@/type/blog";
-import { NextPageWithLayout } from "@/type/next-type";
 import { client } from "@/lib/microcms-client";
 import { BlogId } from "@/component/page/blogs/blogId";
-import SEO from "@/component/layout/seo";
 
 export type Props = {
   blog: Blog;
@@ -33,15 +31,20 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const BlogIdPage: NextPageWithLayout<Props> = ({ blog }) => {
+const BlogIdPage: NextPage<Props> = ({ blog }) => {
   return (
     <>
-      <SEO title={`ユウトブログ/${blog.title}`} description={blog.description} url={blog.eyecatch.url} type="website" />
-      <BlogId blog={blog} />
+      <Layout
+        metadata={{
+          title: `ユウトブログ/${blog.title}`,
+          description: `${blog.description}`,
+          url: `${blog.eyecatch.url}`,
+        }}
+      >
+        <BlogId blog={blog} />
+      </Layout>
     </>
   );
 };
-
-BlogIdPage.getLayout = Layout;
 
 export default BlogIdPage;
