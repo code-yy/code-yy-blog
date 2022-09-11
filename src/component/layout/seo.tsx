@@ -8,7 +8,7 @@ type Props = {
   type?: "blog" | "article" | "website";
 };
 
-export const SEO: FC<Props> = ({ title, description, url, type = "blog" }) => {
+const SEO: FC<Props> = ({ title, description, url, type = "blog" }) => {
   return (
     <>
       <NextHead>
@@ -33,3 +33,5 @@ export const SEO: FC<Props> = ({ title, description, url, type = "blog" }) => {
     </>
   );
 };
+
+export default SEO;
