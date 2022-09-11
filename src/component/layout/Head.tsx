@@ -5,10 +5,9 @@ type Props = {
   title: string;
   description: string;
   url: string;
-  twitterCard: "summary_large_image" | "summary";
 };
 
-export const Head: FC<Props> = ({ title, description, url, twitterCard }) => {
+export const Head: FC<Props> = ({ title, description, url }) => {
   return (
     <NextHead>
       <title>code-yy-blog</title>
