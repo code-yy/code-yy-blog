@@ -8,7 +8,7 @@ const HomePage: NextPageWithLayout = () => {
       <Head
         title="ユウトブログ"
         description="技術ブログや、近況報告などをやっていきます"
-        url="/god.png"
+        url="https://code-yy-blog.vercel.app/god.png"
         twitterCard="summary_large_image"
       />
       <Home />
