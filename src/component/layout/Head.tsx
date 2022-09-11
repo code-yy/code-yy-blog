@@ -15,6 +15,8 @@ export const Head: FC<Props> = ({ title, description, url, twitterCard }) => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={url} />
+      <meta property="twitter:title" content={title} />
+      <meta property="twitter:image" content={url} />
       <meta name="twitter:card" content={twitterCard} />
     </NextHead>
   );
