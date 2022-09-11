@@ -1,11 +1,16 @@
-import { Layout } from "@/component/layout";
+import { NextPage } from "next";
+import { Head, Layout } from "@/component/layout";
 import { Home } from "@/component/page/root/Home";
-import { NextPageWithLayout } from "@/type/next-type";
 
-const HomePage: NextPageWithLayout = () => {
-  return <Home />;
+const HomePage: NextPage = () => {
+  return (
+    <>
+      <Head />
+      <Layout>
+        <Home />
+      </Layout>
+    </>
+  );
 };
-
-HomePage.getLayout = Layout;
 
 export default HomePage;
