@@ -1,5 +1,4 @@
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
-import Head from "next/head";
 import { ReactElement, useEffect, useState } from "react";
 import { GetLayout } from "@/type/next-type";
 import { AppLoading } from "../ui/AppLoading";
@@ -21,10 +20,6 @@ export const Layout: GetLayout = (page: ReactElement) => {
 
   return (
     <>
-      <Head>
-        <title>Code yy</title>
-        <link rel="icon" type="image/png" sizes="16x16" href="/god.png" />
-      </Head>
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
           <Header />
