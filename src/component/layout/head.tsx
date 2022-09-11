@@ -27,7 +27,10 @@ export const Head: FC<Props> = ({ title, description, url }) => {
 
         {/* Twitter */}
         <meta name="twitter:site" content="@codeyy_dev" />
-        <meta name="twitter:image" content={_url} />
+        <meta
+          name="twitter:image"
+          content="https://images.microcms-assets.io/assets/33c71035995b49b1b549e288e06aeb7e/9dc1c29068fe40c6a8de14639de46f06/760b7a8b44c283e43459afa1ddc71086-png.png"
+        />
         <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
       </NextHead>
     </>
