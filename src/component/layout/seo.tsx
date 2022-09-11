@@ -5,7 +5,7 @@ type Props = {
   title?: string;
   description?: string;
   url?: string;
-  type?: "blog" | "article";
+  type?: "blog" | "article" | "website";
 };
 
 export const SEO: FC<Props> = ({ title, description, url, type = "blog" }) => {
@@ -20,11 +20,13 @@ export const SEO: FC<Props> = ({ title, description, url, type = "blog" }) => {
       <meta property="og:type" content={type} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={url} />
+      <meta property="og:site_name" content="ユウトブログ" />
 
       {/* Twitter */}
       <meta property="twitter:title" content={title} />
       <meta property="twitter:image" content={url} />
       <meta property="twitter:description" content={description} />
+      <meta name="twitter:site" content="@codeyy_dev" />
       <meta name="twitter:card" content="summary_large_image" />
     </NextHead>
   );

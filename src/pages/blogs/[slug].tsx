@@ -35,7 +35,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 const BlogIdPage: NextPageWithLayout<Props> = ({ blog }) => {
   return (
     <>
-      <SEO title={`ユウトブログ/${blog.title}`} description={blog.description} url={blog.eyecatch.url} type="article" />
+      <SEO title={`ユウトブログ/${blog.title}`} description={blog.description} url={blog.eyecatch.url} type="website" />
       <BlogId blog={blog} />
     </>
   );
