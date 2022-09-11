@@ -1,4 +1,4 @@
-import { Head } from "@/component/layout";
+import { SEO } from "@/component/layout";
 import { AppPropsWithLayout } from "@/type/next-type";
 import "src/style/globals.css";
 
@@ -7,7 +7,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
 
   return (
     <>
-      <Head
+      <SEO
         title="ユウトブログ"
         description="技術ブログや、近況報告などをやっていきます"
         url="https://code-yy-blog.vercel.app/god.png"

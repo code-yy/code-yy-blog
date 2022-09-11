@@ -1,2 +1,2 @@
-export { Head } from "./Head";
+export { SEO } from "./seo";
 export { Layout } from "./Layout";

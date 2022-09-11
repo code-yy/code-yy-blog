@@ -7,7 +7,7 @@ type Props = {
   url: string;
 };
 
-export const Head: FC<Props> = ({ title, description, url }) => {
+export const SEO: FC<Props> = ({ title, description, url }) => {
   return (
     <NextHead>
       <title>code-yy-blog</title>
