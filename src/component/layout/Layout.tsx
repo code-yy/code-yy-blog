@@ -1,11 +1,14 @@
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
-import { ReactElement, useEffect, useState } from "react";
-import { GetLayout } from "@/type/next-type";
+import { FC, ReactNode, useEffect, useState } from "react";
 import { AppLoading } from "../ui/AppLoading";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 
-export const Layout: GetLayout = (page: ReactElement) => {
+type Props = {
+  children: ReactNode;
+};
+
+export const Layout: FC<Props> = ({ children }) => {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
   const toggleColorScheme = (value?: ColorScheme) => {
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
@@ -23,7 +26,7 @@ export const Layout: GetLayout = (page: ReactElement) => {
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
           <Header />
-          <main>{page}</main>
+          <main>{children}</main>
           <Footer />
         </MantineProvider>
       </ColorSchemeProvider>
