@@ -1,4 +1,3 @@
-import { SEO } from "@/component/layout";
 import { AppPropsWithLayout } from "@/type/next-type";
 import "src/style/globals.css";
 
