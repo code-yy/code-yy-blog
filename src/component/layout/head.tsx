@@ -18,11 +18,16 @@ export const Head: FC<Props> = ({ title, description, url }) => {
     <>
       <NextHead>
         <title>code-yy-blog</title>
-        <meta property="og:title" content={_title} key="title" />
-        <meta property="og:description" content={_description} key="description" />
-        <meta property="og:image" content={_url} key="url" />
-        <meta property="twitter:title" content={_title} key="twitter:title" />
-        <meta property="twitter:image" content={_url} key="twitter:image" />
+        <link rel="icon" sizes="512x512" href="/god.png" />
+
+        {/* Main */}
+        <meta property="og:title" content={_title} />
+        <meta property="og:description" content={_description} />
+        <meta property="og:image" content={_url} />
+
+        {/* Twitter */}
+        <meta name="twitter:site" content="@codeyy_dev" />
+        <meta name="twitter:image" content={_url} />
         <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
       </NextHead>
     </>
