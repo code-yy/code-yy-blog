@@ -19,7 +19,6 @@ specifiers:
   highlight.js: ^11.6.0
   microcms-js-sdk: ^2.0.0
   next: 12.1.6
-  next-head-seo: ^0.1.3
   postcss: ^8.4.14
   react: 18.1.0
   react-dom: 18.1.0
@@ -33,7 +32,6 @@ dependencies:
   highlight.js: 11.6.0
   microcms-js-sdk: 2.2.1
   next: 12.1.6_ef5jwxihqo6n7gxfmzogljlgcm
-  next-head-seo: 0.1.3_2mgcgz5qhsdxw4fgpqzqeafmkq
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
   rss-parser: 3.12.0
@@ -2058,18 +2056,6 @@ packages:
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
-
-  /next-head-seo/0.1.3_2mgcgz5qhsdxw4fgpqzqeafmkq:
-    resolution: {integrity: sha512-81vhTbe5CIi+fF12m2Zd4zCbw5rY65DRJC4y0GDIcvku7AzeQsHsuHWfROBANhWk1Fv7A33IDTJMn31owgoxkQ==}
-    peerDependencies:
-      next: '*'
-      react: '*'
-      react-dom: '*'
-    dependencies:
-      next: 12.1.6_ef5jwxihqo6n7gxfmzogljlgcm
-      react: 18.1.0
-      react-dom: 18.1.0_react@18.1.0
-    dev: false
 
   /next/12.1.6_ef5jwxihqo6n7gxfmzogljlgcm:
     resolution: {integrity: sha512-cebwKxL3/DhNKfg9tPZDQmbRKjueqykHHbgaoG4VBRH3AHQJ2HO0dbKFiS1hPhe1/qgc2d/hFeadsbPicmLD+A==}
