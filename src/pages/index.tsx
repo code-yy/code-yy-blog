@@ -1,15 +1,12 @@
 import { NextPage } from "next";
-import { Head, Layout } from "@/component/layout";
 import { Home } from "@/component/page/root/Home";
+import { Layout } from "@/component/layout";
 
 const HomePage: NextPage = () => {
   return (
-    <>
-      <Head />
-      <Layout>
-        <Home />
-      </Layout>
-    </>
+    <Layout>
+      <Home />
+    </Layout>
   );
 };
 

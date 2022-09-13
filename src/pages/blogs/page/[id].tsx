@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { client } from "@/lib/microcms-client";
-import { Head, Layout } from "@/component/layout";
+import { Layout } from "@/component/layout";
 import { Blogs } from "@/type/blog";
 import { BlogList } from "@/component/page/blogs/blogs";
 
@@ -9,15 +9,15 @@ export type Props = {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const repos = await client.get({ endpoint: "blogs" });
+  const repos: Blogs = await client.get({ endpoint: "blogs" });
 
   const PER_PAGE = 5;
 
-  const range = (start: number, end: number) => {
+  const range = (start: number, end: number): number[] => {
     return [...Array(end - start + 1)].map((_, i) => start + i);
   };
 
-  const paths = range(1, Math.ceil(repos.totalCount / PER_PAGE)).map((repo) => {
+  const paths: string[] = range(1, Math.ceil(repos.totalCount / PER_PAGE)).map((repo) => {
     return `/blogs/page/${repo}`;
   });
 
@@ -46,12 +46,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 const BlogListPage: NextPage<Props> = ({ blogs }) => {
   return (
-    <>
-      <Head />
-      <Layout>
-        <BlogList blogs={blogs} />
-      </Layout>
-    </>
+    <Layout>
+      <BlogList blogs={blogs} />
+    </Layout>
   );
 };
 

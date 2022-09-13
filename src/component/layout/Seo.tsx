@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const Head: FC<Props> = ({ title, description, url }) => {
-  const _title = title ?? "ユウトブログ";
+  const _title: string = title ?? "ユウトブログ";
   const _description: string = description ?? "技術ブログや、近況報告などをやっていきます";
   const _url: string =
     url ??
