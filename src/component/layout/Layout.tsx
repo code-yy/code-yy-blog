@@ -1,7 +1,6 @@
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import { FC, ReactNode, useEffect, useState } from "react";
-import { AppLoading } from "../ui/AppLoading";
-import { Footer } from "./Footer";
+import { AppLoading } from "../ui";
 import { Header } from "./Header";
 
 type Props = {
@@ -26,8 +25,7 @@ export const Layout: FC<Props> = ({ children }) => {
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
           <Header />
-          <main>{children}</main>
-          <Footer />
+          <main className="my-5">{children}</main>
         </MantineProvider>
       </ColorSchemeProvider>
     </>
