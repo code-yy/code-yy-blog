@@ -1,13 +1,18 @@
-/* eslint-disable @next/next/no-img-element */
-import { FC, useEffect } from "react";
+import "highlight.js/styles/atom-one-dark.css";
 import hljs from "highlight.js";
+
+import { load } from "cheerio";
+import { FC, useEffect } from "react";
 import { useMantineColorScheme } from "@mantine/core";
 import { Props } from "@/pages/blogs/[slug]";
-import "highlight.js/styles/atom-one-dark.css";
+import { cheerioHeadline } from "@/lib/cheerio-headline";
 
 export const BlogId: FC<Props> = ({ blog }) => {
   const { colorScheme } = useMantineColorScheme();
   const dark = colorScheme === "dark";
+
+  const $ = load(blog.content);
+  const content = cheerioHeadline($);
 
   useEffect(() => {
     hljs.initHighlightingOnLoad();
@@ -20,7 +25,7 @@ export const BlogId: FC<Props> = ({ blog }) => {
         alt={`${blog.eyecatch.url}のアイキャッチ`}
         className="mx-auto max-h-[500px] max-w-4xl"
       />
-      <div className={`${dark && "text-white"}`} dangerouslySetInnerHTML={{ __html: blog.content }} />
+      <div className={`${dark && "text-white"}`} dangerouslySetInnerHTML={{ __html: content.html() }} />
     </article>
   );
 };
