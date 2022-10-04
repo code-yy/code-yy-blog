@@ -2,7 +2,7 @@ import { Header as MantineHeader, Container, ActionIcon, Group, useMantineColorS
 import { Sun, MoonStars } from "tabler-icons-react";
 import { FC } from "react";
 import { LINK } from "@/constant/link";
-import { AppLink, ProfileIcon } from "@/component/ui";
+import { AppLink } from "@/component/ui";
 import { SnsIcon } from "@/component/feature/SnsIcon";
 
 const NavList = [
@@ -21,7 +21,7 @@ export const Header: FC = () => {
   const dark = colorScheme === "dark";
 
   return (
-    <MantineHeader height={56} className="mb-4 md:mb-8">
+    <MantineHeader height={56}>
       <Container className="flex h-[56px] items-center justify-between">
         <Menu className="block sm:hidden">
           {NavList.map((item) => (
@@ -44,11 +44,6 @@ export const Header: FC = () => {
               </AppLink>
             );
           })}
-        </Group>
-        <Group>
-          <div className="hidden h-11 w-11 items-center sm:flex">
-            <ProfileIcon />
-          </div>
         </Group>
         <Group spacing={0} className="w-[260px]" position="right" noWrap>
           <div className="mr-3 flex">
