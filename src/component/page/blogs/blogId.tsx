@@ -19,11 +19,11 @@ export const BlogId: FC<Props> = ({ blog }) => {
   }, []);
 
   return (
-    <article className="prose mx-auto max-w-none px-8  md:prose-base lg:prose lg:max-w-12%">
+    <article className="prose mx-auto max-w-none px-4 md:prose-base lg:prose lg:max-w-12%">
       <img
         src={blog.eyecatch.url}
         alt={`${blog.eyecatch.url}のアイキャッチ`}
-        className="mx-auto max-h-[500px] max-w-4xl"
+        className="mx-auto max-h-[500px] max-w-full md:max-w-4xl"
       />
       <div className={`${dark && "text-white"}`} dangerouslySetInnerHTML={{ __html: content.html() }} />
     </article>
