@@ -1,4 +1,4 @@
-import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
+import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import { FC, ReactNode, useEffect, useState } from "react";
 import { AppLoading } from "../ui";
 import { Header } from "./Header";
@@ -8,9 +8,12 @@ type Props = {
 };
 
 export const Layout: FC<Props> = ({ children }) => {
-  const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
-  const toggleColorScheme = (value?: ColorScheme) => {
-    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+  // NOTE: ColorSchemeの型の拡張方法がわからなかったので、一旦anyで妥協する😭
+  const [colorScheme, setColorScheme] = useState<any>("#FBFBFB");
+
+  const toggleColorScheme = (value: any) => {
+    const isDarkTheme = value || (colorScheme === "dark" ? "#FBFBFB" : "dark");
+    setColorScheme(isDarkTheme);
   };
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -23,7 +26,7 @@ export const Layout: FC<Props> = ({ children }) => {
   return (
     <>
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider>
+        <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
           <Header />
           <main className="my-5">{children}</main>
         </MantineProvider>

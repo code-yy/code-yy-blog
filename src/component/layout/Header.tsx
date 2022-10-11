@@ -21,7 +21,7 @@ export const Header: FC = () => {
   const dark = colorScheme === "dark";
 
   return (
-    <MantineHeader height={56} className="bg-gray-light-200">
+    <MantineHeader height={56} className={colorScheme}>
       <Container className="flex h-[56px] items-center justify-between">
         <Menu className="block sm:hidden">
           {NavList.map((item) => (
@@ -36,7 +36,7 @@ export const Header: FC = () => {
               <AppLink
                 key={label}
                 href={link}
-                className={`decoration-[none] block py-2 px-3 font-medium leading-[1] dark:text-gray-700  ${
+                className={`decoration-[none] block py-2 px-3 font-medium leading-[1] dark:text-gray-light-200  ${
                   dark ? "hover:bg-blue-500" : "hover:bg-gray-100"
                 }`}
               >
