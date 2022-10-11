@@ -23,7 +23,7 @@ export const Layout: FC<Props> = ({ children }) => {
   return (
     <>
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
+        <MantineProvider>
           <Header />
           <main className="my-5">{children}</main>
         </MantineProvider>

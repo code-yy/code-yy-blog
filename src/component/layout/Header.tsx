@@ -21,7 +21,7 @@ export const Header: FC = () => {
   const dark = colorScheme === "dark";
 
   return (
-    <MantineHeader height={56}>
+    <MantineHeader height={56} className="bg-gray-light-200">
       <Container className="flex h-[56px] items-center justify-between">
         <Menu className="block sm:hidden">
           {NavList.map((item) => (
