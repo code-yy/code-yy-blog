@@ -22,6 +22,10 @@ export const cheerioHeadline = ($: CheerioAPI) => {
     $(element).addClass("py-4 px-8 m-4 bg-gray-50 border border-black border-dashed");
   });
 
+  $("ol").each((_, element) => {
+    $(element).addClass("py-4 px-8 m-4 bg-gray-50 border border-black border-dashed");
+  });
+
   $("pre").each((_, element) => {
     $(element).addClass("block bg-gray-600 rounded-sm overflow-x-auto");
   });
