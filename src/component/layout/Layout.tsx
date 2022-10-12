@@ -1,4 +1,4 @@
-import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
+import { AppShell, ColorSchemeProvider, Global, MantineProvider } from "@mantine/core";
 import { FC, ReactNode, useEffect, useState } from "react";
 import { AppLoading } from "../ui";
 import { Header } from "./Header";
@@ -27,8 +27,22 @@ export const Layout: FC<Props> = ({ children }) => {
     <>
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
-          <Header />
-          <main className="my-5">{children}</main>
+          <Global
+            styles={(theme) => ({
+              body: {
+                ...theme.fn.fontStyles(),
+                backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[7] : "#FBFBFB",
+              },
+            })}
+          />
+          <AppShell
+            header={<Header />}
+            styles={(theme) => ({
+              body: { backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[8] : "#FBFBFB" },
+            })}
+          >
+            <main className="my-5">{children}</main>
+          </AppShell>
         </MantineProvider>
       </ColorSchemeProvider>
     </>

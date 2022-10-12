@@ -7,7 +7,7 @@ export const cheerioHeadline = ($: CheerioAPI) => {
   });
 
   $("h3").each((_, element) => {
-    $(element).addClass("pl-4 py-2 my-4 font-bold text-xl border-l-8 border-black bg-gray-50");
+    $(element).addClass("pl-4 py-2 my-4 font-bold text-xl border-l-8 border-black bg-gray-200");
   });
 
   $("h4").each((_, element) => {
