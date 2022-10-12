@@ -1,4 +1,4 @@
-import { Header as MantineHeader, Container, ActionIcon, Group, useMantineColorScheme, Menu } from "@mantine/core";
+import { Container, ActionIcon, Group, useMantineColorScheme, Menu, Box } from "@mantine/core";
 import { Sun, MoonStars } from "tabler-icons-react";
 import { FC } from "react";
 import { LINK } from "@/constant/link";
@@ -21,8 +21,8 @@ export const Header: FC = () => {
   const dark = colorScheme === "dark";
 
   return (
-    <MantineHeader height={56} className={colorScheme}>
-      <Container className="flex h-[56px] items-center justify-between">
+    <Container className="px-0" fluid={true}>
+      <Box className="flex h-14 items-center justify-between border-b-2 border-solid px-96">
         <Menu className="block sm:hidden">
           {NavList.map((item) => (
             <Menu.Item key={item.label}>
@@ -57,7 +57,7 @@ export const Header: FC = () => {
             {dark ? <Sun size={18} /> : <MoonStars size={18} />}
           </ActionIcon>
         </Group>
-      </Container>
-    </MantineHeader>
+      </Box>
+    </Container>
   );
 };
