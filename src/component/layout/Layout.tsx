@@ -39,9 +39,10 @@ export const Layout: FC<Props> = ({ children }) => {
             header={<Header />}
             styles={(theme) => ({
               body: { backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[8] : "#FBFBFB" },
+              main: { padding: 0, margin: "1.25rem 0" },
             })}
           >
-            <main className="my-5">{children}</main>
+            {children}
           </AppShell>
         </MantineProvider>
       </ColorSchemeProvider>

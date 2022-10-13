@@ -22,7 +22,7 @@ export const Header: FC = () => {
 
   return (
     <Container className="px-0" fluid={true}>
-      <Box className="flex h-14 items-center justify-between border-b-2 border-solid px-5 md:px-96">
+      <Box className="flex h-14 items-center justify-between border-b-2 border-solid px-2 md:px-96">
         <Menu className="block sm:hidden">
           {NavList.map((item) => (
             <Menu.Item key={item.label}>
