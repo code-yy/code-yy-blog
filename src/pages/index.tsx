@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
-import { Head, MainLayout } from "@/component/Layout";
+import { Head, MainLayout } from "@/component/MainLayout";
 import { BlogList } from "@/component/Page/BlogList";
 import { blogRepository, Blogs } from "@/module/blog";
 
