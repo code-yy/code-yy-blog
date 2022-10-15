@@ -17,7 +17,7 @@ export const Head: FC<Props> = ({ title, description, url }) => {
   return (
     <>
       <NextHead>
-        <title>code-yy-blog</title>
+        <title>yuto blog</title>
         <link rel="icon" sizes="512x512" href="/god.png" />
 
         {/* Main */}

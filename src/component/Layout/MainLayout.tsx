@@ -1,13 +1,15 @@
-import { AppShell, ColorSchemeProvider, Global, MantineProvider } from "@mantine/core";
+import { AppShell, ColorSchemeProvider, createStyles, Global, MantineProvider } from "@mantine/core";
 import { FC, ReactNode, useEffect, useState } from "react";
 import { AppLoading } from "../Element";
 import { Header } from "./Header";
+import { ProfileCard } from "./ProfileCard";
 
 type Props = {
   children: ReactNode;
 };
 
 export const MainLayout: FC<Props> = ({ children }) => {
+  const { classes } = useStyles();
   // NOTE: ColorSchemeの型の拡張方法がわからなかったので、一旦anyで妥協する😭
   const [colorScheme, setColorScheme] = useState<any>("#FBFBFB");
 
@@ -31,17 +33,11 @@ export const MainLayout: FC<Props> = ({ children }) => {
             styles={(theme) => ({
               body: {
                 ...theme.fn.fontStyles(),
-                backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[7] : "#FBFBFB",
+                backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.gray[0],
               },
             })}
           />
-          <AppShell
-            header={<Header />}
-            styles={(theme) => ({
-              body: { backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[8] : "#FBFBFB" },
-              main: { padding: 0, margin: "1.25rem 0" },
-            })}
-          >
+          <AppShell header={<Header />} aside={<ProfileCard />} className={classes.container}>
             {children}
           </AppShell>
         </MantineProvider>
@@ -49,3 +45,14 @@ export const MainLayout: FC<Props> = ({ children }) => {
     </>
   );
 };
+
+const useStyles = createStyles(() => ({
+  container: {
+    maxWidth: "1100px",
+    margin: "0 auto",
+    padding: "16px",
+    main: {
+      padding: "0",
+    },
+  },
+}));

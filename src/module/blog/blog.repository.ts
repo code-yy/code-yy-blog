@@ -12,8 +12,7 @@ export type Blogs = {
 
 export const blogRepository = {
   async find(): Promise<Blogs> {
-    const res = await client.get({ endpoint: "blogs" });
-    return res;
+    return await client.get({ endpoint: "blogs" });
   },
 
   async findOne(context: GetStaticPropsContext<ParsedUrlQuery, PreviewData>): Promise<Blog> {
@@ -24,7 +23,6 @@ export const blogRepository = {
 
   async findPath() {
     const blogs: Blogs = await client.get({ endpoint: "blogs" });
-    const paths = blogs.contents.map((blog) => `/blogs/${blog.slug}`);
-    return paths;
+    return blogs.contents.map((blog) => `/blogs/${blog.slug}`);
   },
 };
