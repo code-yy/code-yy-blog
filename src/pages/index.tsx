@@ -3,7 +3,7 @@ import { Head, MainLayout } from "@/component/Layout";
 import { BlogList } from "@/component/Page/BlogList";
 import { blogRepository, Blogs } from "@/module/blog";
 
-type Props = {
+export type Props = {
   blogs: Blogs;
 };
 
