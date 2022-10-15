@@ -4,10 +4,10 @@ import hljs from "highlight.js";
 import { load } from "cheerio";
 import { FC, useEffect } from "react";
 import { useMantineColorScheme } from "@mantine/core";
-import { Props } from "@/pages/blogs/[slug]";
 import { cheerioHeadline } from "@/lib/cheerio-headline";
+import { Props } from "@/pages/blogs/[slug]";
 
-export const BlogId: FC<Props> = ({ blog }) => {
+export const BlogDetail: FC<Props> = ({ blog }) => {
   const { colorScheme } = useMantineColorScheme();
   const dark = colorScheme === "dark";
 
