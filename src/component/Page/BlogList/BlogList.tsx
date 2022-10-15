@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { Pagination } from "@mantine/core";
 import { useRouter } from "next/router";
 import { Props } from "@/pages/blogs/page/[id]";
-import { BlogCard } from "@/component/feature/BlogCard";
+import { BlogCard } from "@/component/Page/BlogList/BlogCard";
 
 export const BlogList: FC<Props> = ({ blogs }) => {
   const { contents, totalCount, limit } = blogs;

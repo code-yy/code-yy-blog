@@ -1,16 +1,36 @@
-import { NextPage } from "next";
-import { Head, Layout } from "@/component/layout";
-import { Home } from "@/component/page/root/Home";
+import { GetStaticProps, NextPage } from "next";
+import { Head, MainLayout } from "@/component/Layout";
+import { BlogList } from "@/component/Page/BlogList";
+import { blogRepository, Blogs } from "@/module/blog";
 
-const HomePage: NextPage = () => {
+type Props = {
+  blogs: Blogs;
+};
+
+const HomePage: NextPage<Props> = ({ blogs }) => {
   return (
     <>
       <Head />
-      <Layout>
-        <Home />
-      </Layout>
+      <MainLayout>
+        <BlogList blogs={blogs} />
+      </MainLayout>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await blogRepository.find();
+
+  return {
+    props: {
+      blogs: {
+        contents: res.contents,
+        totalCount: res.totalCount,
+        limit: res.limit,
+        offset: res.offset,
+      },
+    },
+  };
 };
 
 export default HomePage;

@@ -1,2 +1,2 @@
-export { Head } from "./head";
-export { Layout } from "./Layout";
+export { Head } from "./HeadTest";
+export { MainLayout } from "./MainLayout";

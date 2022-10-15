@@ -1,7 +1,7 @@
 import { Paper, Title, Text } from "@mantine/core";
 import { FC } from "react";
 import { Blog } from "@/type/blog";
-import { AppLink } from "../ui";
+import { AppLink } from "@/component/Element";
 
 type Props = {
   blog: Blog;

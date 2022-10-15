@@ -7,7 +7,7 @@ import { useMantineColorScheme } from "@mantine/core";
 import { Props } from "@/pages/blogs/[slug]";
 import { cheerioHeadline } from "@/lib/cheerio-headline";
 
-export const BlogId: FC<Props> = ({ blog }) => {
+export const BlogDetail: FC<Props> = ({ blog }) => {
   const { colorScheme } = useMantineColorScheme();
   const dark = colorScheme === "dark";
 
