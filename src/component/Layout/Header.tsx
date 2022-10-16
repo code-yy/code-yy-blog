@@ -1,12 +1,14 @@
 import { createStyles, Title } from "@mantine/core";
 import { FC } from "react";
+import { LINK } from "@/constant/link";
+import { AppLink } from "../Element";
 
 export const Header: FC = () => {
   const { classes } = useStyles();
 
   return (
     <Title order={3} className={classes.container}>
-      ユウトブログ
+      <AppLink href={LINK.HOME}>Yuto Blog</AppLink>
     </Title>
   );
 };
