@@ -15,7 +15,6 @@ export const ProfileCard: FC = () => {
         </Title>
       </Box>
       <Text mt={16}>20歳のフロントエンドエンジニア。高校サッカー県大会優勝&優秀選手賞受賞。</Text>
-      {/* TODO: アイコンのサイズ調整 */}
       <Box className={classes.icons} mt={10}>
         <SnsIcon />
       </Box>
@@ -23,14 +22,19 @@ export const ProfileCard: FC = () => {
   );
 };
 
-const useStyles = createStyles(() => ({
+const useStyles = createStyles((theme) => ({
   container: {
+    position: "sticky",
+    top: "2rem",
     height: "100%",
     width: 290,
     display: "flex",
     flexDirection: "column",
     alignItems: "start",
     backgroundColor: "white",
+    [theme.fn.smallerThan("md")]: {
+      width: "100%",
+    },
   },
   wrapper: {
     display: "flex",

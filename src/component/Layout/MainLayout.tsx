@@ -37,7 +37,15 @@ export const MainLayout: FC<Props> = ({ children }) => {
               },
             })}
           />
-          <AppShell header={<Header />} aside={<ProfileCard />} className={classes.container}>
+          <AppShell
+            header={<Header />}
+            aside={<ProfileCard />}
+            classNames={{
+              root: classes.root,
+              body: classes.body,
+              main: classes.main,
+            }}
+          >
             {children}
           </AppShell>
         </MantineProvider>
@@ -46,13 +54,25 @@ export const MainLayout: FC<Props> = ({ children }) => {
   );
 };
 
-const useStyles = createStyles(() => ({
-  container: {
+const useStyles = createStyles((theme) => ({
+  root: {
     maxWidth: "1100px",
     margin: "0 auto",
     padding: "16px",
-    main: {
-      padding: "0",
+    [theme.fn.smallerThan("md")]: {
+      width: "100%",
+      padding: "0 10px",
+    },
+  },
+  body: {
+    [theme.fn.smallerThan("md")]: {
+      flexDirection: "column",
+    },
+  },
+  main: {
+    padding: "0",
+    [theme.fn.smallerThan("md")]: {
+      width: "100%",
     },
   },
 }));
