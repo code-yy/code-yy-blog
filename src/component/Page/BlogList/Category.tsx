@@ -14,15 +14,17 @@ export const Category: FC<Props> = ({ category }) => {
   const isSelectedCategory = router.query.slug === category.slug;
 
   return (
-    <Badge
-      className={cx(classes.container, { [classes.selected]: isSelectedCategory })}
-      size={"lg"}
-      color={isSelectedCategory ? "pink" : "blue"}
-    >
-      <AppLink href={`/category/${category.slug}`} className={classes.link}>
-        <Text size={"sm"}>#{category.name}</Text>
-      </AppLink>
-    </Badge>
+    <>
+      <Badge
+        className={cx(classes.container, { [classes.selected]: isSelectedCategory })}
+        size={"lg"}
+        color={isSelectedCategory ? "pink" : "blue"}
+      >
+        <AppLink href={`/category/${category.slug}`} className={classes.link}>
+          <Text size={"sm"}>#{category.name}</Text>
+        </AppLink>
+      </Badge>
+    </>
   );
 };
 
