@@ -4,17 +4,18 @@ import { BlogList } from "@/component/Page/BlogList";
 import { blogRepository, Blogs } from "@/module/blog";
 import { Categories, categoryRepository } from "@/module/category";
 
-export type Props = {
-  blogs: Blogs;
+export type Props<T> = {
+  blogs: T;
   categories: Categories;
 };
 
-const HomePage: NextPage<Props> = ({ blogs, categories }) => {
+const HomePage: NextPage<Props<Blogs>> = ({ blogs, categories }) => {
+  const { contents } = blogs;
   return (
     <>
       <Head />
       <MainLayout>
-        <BlogList blogs={blogs} categories={categories} />
+        <BlogList blogs={contents} categories={categories} />
       </MainLayout>
     </>
   );
