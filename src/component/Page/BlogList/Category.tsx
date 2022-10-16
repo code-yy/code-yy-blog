@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Badge, createStyles, Text } from "@mantine/core";
 import { useRouter } from "next/router";
+import { useMediaQuery } from "@mantine/hooks";
 import { Category as CategoryEntity } from "@/module/category";
 import { AppLink } from "@/component/Element";
 
@@ -12,16 +13,17 @@ export const Category: FC<Props> = ({ category }) => {
   const { classes, cx } = useStyles();
   const router = useRouter();
   const isSelectedCategory = router.query.slug === category.slug;
+  const largeScreen = useMediaQuery("(min-width: 900px)");
 
   return (
     <>
       <Badge
         className={cx(classes.container, { [classes.selected]: isSelectedCategory })}
-        size={"lg"}
+        size={largeScreen ? "lg" : "md"}
         color={isSelectedCategory ? "pink" : "blue"}
       >
         <AppLink href={`/category/${category.slug}`} className={classes.link}>
-          <Text size={"sm"}>#{category.name}</Text>
+          <Text size={largeScreen ? "sm" : "xs"}>#{category.name}</Text>
         </AppLink>
       </Badge>
     </>
@@ -33,6 +35,9 @@ const useStyles = createStyles((theme) => ({
     padding: "0",
     margin: "0 10px 10px 0",
     textTransform: "none",
+    [theme.fn.smallerThan("md")]: {
+      fontSize: "10px",
+    },
   },
   link: {
     padding: "0 13px",
