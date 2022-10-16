@@ -2,23 +2,23 @@ import { BrandTwitter, BrandGithub, BrandInstagram, BrandAmazon } from "tabler-i
 import { ActionIcon } from "@mantine/core";
 import { FC } from "react";
 import { LINK } from "@/constant/link";
-import { AppLink } from "./AppLink";
+import { AppLink } from "@/component/Element";
 
 const SnsIcons = [
   {
-    icon: <BrandTwitter size={18} />,
+    icon: <BrandTwitter size={25} />,
     link: LINK.TWITTER,
   },
   {
-    icon: <BrandGithub size={18} />,
+    icon: <BrandGithub size={25} />,
     link: LINK.GITHUB,
   },
   {
-    icon: <BrandInstagram size={18} />,
+    icon: <BrandInstagram size={25} />,
     link: LINK.INSTAGRAM,
   },
   {
-    icon: <BrandAmazon size={18} />,
+    icon: <BrandAmazon size={25} />,
     link: LINK.AMAZON,
   },
 ];
@@ -26,10 +26,12 @@ const SnsIcons = [
 export const SnsIcon: FC = () => {
   return (
     <>
-      {SnsIcons.map(({ icon, link }) => {
+      {SnsIcons.map(({ icon, link }, index) => {
         return (
-          <AppLink key={link} href={link} target="_blank" rel="noreferrer">
-            <ActionIcon size="lg">{icon}</ActionIcon>
+          <AppLink key={index} href={link} target="_blank" rel="noreferrer">
+            <ActionIcon size="lg" mr={5}>
+              {icon}
+            </ActionIcon>
           </AppLink>
         );
       })}

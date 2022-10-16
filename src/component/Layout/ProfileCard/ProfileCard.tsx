@@ -1,7 +1,7 @@
 import { Box, createStyles, Paper, Text, Title } from "@mantine/core";
 import Image from "next/image";
 import { FC } from "react";
-import { SnsIcon } from "@/component/Element";
+import { SnsIcon } from "./SnsIcon";
 
 export const ProfileCard: FC = () => {
   const { classes } = useStyles();
@@ -16,7 +16,7 @@ export const ProfileCard: FC = () => {
       </Box>
       <Text mt={16}>20歳のフロントエンドエンジニア。高校サッカー県大会優勝&優秀選手賞受賞。</Text>
       {/* TODO: アイコンのサイズ調整 */}
-      <Box className={classes.icons} mt={24}>
+      <Box className={classes.icons} mt={10}>
         <SnsIcon />
       </Box>
     </Paper>
