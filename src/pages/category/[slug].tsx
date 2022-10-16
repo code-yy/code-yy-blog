@@ -1,20 +1,16 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from "next/types";
 import { Head, MainLayout } from "@/component/Layout";
 import { Blog, blogRepository } from "@/module/blog";
-import { Categories, categoryRepository } from "@/module/category";
-import { CategoryBlogList } from "@/component/Page/CategoryBlogList";
+import { categoryRepository } from "@/module/category";
+import { BlogList } from "@/component/Page/BlogList";
+import { Props } from "..";
 
-export type Props = {
-  blogs: Blog[];
-  categories: Categories;
-};
-
-const CategoryBlogListPage: NextPage<Props> = ({ blogs, categories }) => {
+const CategoryBlogListPage: NextPage<Props<Blog[]>> = ({ blogs, categories }) => {
   return (
     <>
       <Head />
       <MainLayout>
-        <CategoryBlogList blogs={blogs} categories={categories} />
+        <BlogList blogs={blogs} categories={categories} />
       </MainLayout>
     </>
   );

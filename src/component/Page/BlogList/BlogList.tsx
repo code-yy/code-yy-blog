@@ -1,13 +1,14 @@
 import { FC } from "react";
 import { Badge, Box, createStyles, Text } from "@mantine/core";
 import { useRouter } from "next/router";
-import { Props } from "@/pages";
 import { AppLink } from "@/component/Element";
 import { LINK } from "@/constant/link";
+import { Props } from "@/pages";
+import { Blog } from "@/module/blog";
 import { BlogCard } from "./BlogCard";
 import { Category } from "./Category";
 
-export const BlogList: FC<Props> = ({ blogs, categories }) => {
+export const BlogList: FC<Props<Blog[]>> = ({ blogs, categories }) => {
   const { classes, cx } = useStyles();
   const router = useRouter();
   const isHome = router.asPath === LINK.HOME;
@@ -26,7 +27,7 @@ export const BlogList: FC<Props> = ({ blogs, categories }) => {
       {categories.contents.map((category) => (
         <Category key={category.id} category={category} />
       ))}
-      {blogs.contents.map((blog) => (
+      {blogs.map((blog) => (
         <BlogCard key={blog.id} blog={blog} />
       ))}
     </Box>
