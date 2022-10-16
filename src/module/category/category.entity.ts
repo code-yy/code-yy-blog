@@ -4,5 +4,6 @@ export class Category {
   updatedAt?: string;
   publishedAt?: string;
   revisedAt?: string;
-  name?: string;
+  name!: string;
+  slug!: string;
 }

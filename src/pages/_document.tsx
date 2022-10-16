@@ -4,7 +4,10 @@ import { NextPage } from "next";
 const Document: NextPage = () => {
   return (
     <Html>
-      <Head />
+      <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet" />
+      </Head>
       <body>
         <Main />
         <NextScript />

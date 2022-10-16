@@ -25,4 +25,14 @@ export const blogRepository = {
     const blogs: Blogs = await client.get({ endpoint: "blogs" });
     return blogs.contents.map((blog) => `/blogs/${blog.slug}`);
   },
+
+  async findCategoryPath() {
+    const blogs: Blogs = await client.get({ endpoint: "blogs" });
+    return blogs.contents.map((blog) => `/category/${blog.category.slug}`);
+  },
+
+  async findCategory(context: GetStaticPropsContext<ParsedUrlQuery, PreviewData>): Promise<Blog[]> {
+    const res: Blogs = await client.get({ endpoint: "blogs" });
+    return res.contents.filter((blog) => blog.category.slug === context.params?.slug);
+  },
 };
