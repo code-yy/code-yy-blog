@@ -1,6 +1,7 @@
 import { Box, createStyles, Paper, Text, Title } from "@mantine/core";
 import Image from "next/image";
 import { FC } from "react";
+import { staticPath } from "@/lib/$path";
 import { SnsIcon } from "./SnsIcon";
 
 export const ProfileCard: FC = () => {
@@ -9,7 +10,13 @@ export const ProfileCard: FC = () => {
   return (
     <Paper className={classes.container} shadow="md" p="xl" radius="md">
       <Box className={classes.wrapper}>
-        <Image src={"/profile-image.png"} alt={"プロフィール画像"} width={70} height={70} className={classes.image} />
+        <Image
+          src={staticPath.profile_image_png}
+          alt={"プロフィール画像"}
+          width={70}
+          height={70}
+          className={classes.image}
+        />
         <Title order={3} className={classes.name} ml={10}>
           ユウト
         </Title>
