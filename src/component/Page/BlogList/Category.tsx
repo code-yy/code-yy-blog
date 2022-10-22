@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useMediaQuery } from "@mantine/hooks";
 import { Category as CategoryEntity } from "@/module/category";
 import { AppLink } from "@/component/Element";
+import { pagesPath } from "@/lib/$path";
 
 type Props = {
   category: CategoryEntity;
@@ -22,7 +23,7 @@ export const Category: FC<Props> = ({ category }) => {
         size={largeScreen ? "lg" : "md"}
         color={isSelectedCategory ? "pink" : "blue"}
       >
-        <AppLink href={`/category/${category.slug}`} className={classes.link}>
+        <AppLink href={pagesPath.category._slug(category.name).$url()} className={classes.link}>
           <Text size={largeScreen ? "sm" : "xs"}>#{category.name}</Text>
         </AppLink>
       </Badge>
