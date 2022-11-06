@@ -22,9 +22,9 @@ jobs:
 
       - name: Install Dependency
         if: ${{ steps.cache_cdk_dependency_id.outputs.cache-hit != 'true' }}
-        run: npm ci --no-audit --progress=false --silent
+        run: yarn ci --no-audit --progress=false --silent
 
       - name: Lint & Format
         run: |
-          npm run lint
-          npm run format
+          yarn lint
+          yarn format
