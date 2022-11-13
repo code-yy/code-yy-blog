@@ -15,9 +15,9 @@ jobs:
         with:
           node-version: 14.x
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        run: pnpm i
+      # Install dependencies
+      - name: Install dependencies
+        run: pnpm install
 
       # ESLint
       - name: Install ESLint
