@@ -2,6 +2,8 @@ name: Main Action
 
 on:
   push:
+    paths-ignore:
+      - "**/*.md"
 
 jobs:
   build:
