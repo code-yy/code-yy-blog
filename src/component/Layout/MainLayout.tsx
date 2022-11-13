@@ -28,11 +28,10 @@ export const MainLayout: FC<Props> = ({ children }) => {
   return (
     <>
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider theme={{ colorScheme, fontFamily: "Noto Sans JP, sans-serif" }} withGlobalStyles>
+        <MantineProvider theme={{ colorScheme, fontFamily: "Roboto" }} withGlobalStyles>
           <Global
             styles={(theme) => ({
               body: {
-                fontFamily: "Noto Sans JP sans-serif",
                 backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.gray[0],
               },
             })}
