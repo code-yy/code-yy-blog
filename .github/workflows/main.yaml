@@ -2,8 +2,6 @@ name: Main Action
 
 on:
   push:
-    paths-ignore:
-      - "**/*.md"
 
 jobs:
   build:
@@ -17,9 +15,8 @@ jobs:
         with:
           node-version: 14.x
 
-
-    - uses: pnpm/action-setup@v2
-        name: Install pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
         id: pnpm-install
         with:
           version: 7
