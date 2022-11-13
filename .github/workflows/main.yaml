@@ -1,24 +1,28 @@
 name: Main Action
 
 on:
-  push:
-    paths-ignore:
-      - "**/*.md"
+  - push
+  - pull_request
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
 
-      - name: Install NPM packages
-        run: pnpm i
+
+    - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
 
       - name: Build Next.js app
         run: pnpm build
