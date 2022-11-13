@@ -1,6 +1,6 @@
 import { createStyles, Title } from "@mantine/core";
 import { FC } from "react";
-import { LINK } from "@/constant/link";
+import { pagesPath } from "@/lib/$path";
 import { AppLink } from "../Element";
 
 export const Header: FC = () => {
@@ -8,7 +8,7 @@ export const Header: FC = () => {
 
   return (
     <Title order={3} className={classes.container}>
-      <AppLink href={LINK.HOME}>Yuto Blog</AppLink>
+      <AppLink href={pagesPath.$url()}>Yuto Blog</AppLink>
     </Title>
   );
 };
