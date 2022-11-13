@@ -18,7 +18,7 @@ jobs:
           node-version: 14.x
 
       - name: Install NPM packages
-        run: pnpm ci
+        run: pnpm i
 
       - name: Build Next.js app
         run: pnpm build
