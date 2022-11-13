@@ -1,9 +1,10 @@
 import Link, { LinkProps } from "next/link";
-import { FC, ReactNode } from "react";
+import { AnchorHTMLAttributes, FC, ReactNode } from "react";
 
-type Props = LinkProps & {
-  children: ReactNode;
-};
+type Props = LinkProps &
+  Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
+    children: ReactNode;
+  };
 
 export const AppLink: FC<Props> = ({ href, as, children, ...rest }) => {
   return (

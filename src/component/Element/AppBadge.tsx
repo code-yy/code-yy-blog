@@ -1,6 +1,6 @@
 import { Badge, createStyles, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import React, { FC } from "react";
+import { FC } from "react";
 import { AppLink } from "./AppLink";
 
 type Props = {
