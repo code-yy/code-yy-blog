@@ -17,7 +17,7 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm i
 
       # ESLint
       - name: Install ESLint
