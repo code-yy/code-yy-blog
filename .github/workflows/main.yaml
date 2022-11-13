@@ -39,9 +39,6 @@ jobs:
       - name: Install dependencies
         run: pnpm i
 
-      - name: TypeScript Error Reporter
-        uses: andoshin11/typescript-error-reporter-action@v1.0.0
-
       # ESLint
       - name: Install ESLint
         run: pnpm lint
