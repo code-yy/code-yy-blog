@@ -13,6 +13,7 @@
     "update-rss": "node ./src/libs/rss/rss.mjs"
   },
   "dependencies": {
+    "@next/font": "^13.0.3",
     "bun-framework-next": "^12.2.4",
     "cheerio": "1.0.0-rc.12",
     "highlight.js": "^11.6.0",

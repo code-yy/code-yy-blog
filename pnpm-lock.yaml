@@ -4,6 +4,7 @@ specifiers:
   '@mantine/core': ^4.2.6
   '@mantine/hooks': 4.2.6
   '@mantine/next': ^4.2.6
+  '@next/font': ^13.0.3
   '@tailwindcss/typography': ^0.5.2
   '@types/node': 17.0.35
   '@types/react': 18.0.9
@@ -31,6 +32,7 @@ specifiers:
   typescript: ^4.7.2
 
 dependencies:
+  '@next/font': 13.0.3
   bun-framework-next: 12.2.5_next@13.0.3
   cheerio: 1.0.0-rc.12
   highlight.js: 11.6.0
@@ -293,6 +295,10 @@ packages:
     dependencies:
       glob: 7.1.7
     dev: true
+
+  /@next/font/13.0.3:
+    resolution: {integrity: sha512-J3bZooNyhzhRshEJZlc4Kagfx6f8LQkPdCsP0nZm63dAUaoeMaQRidFFhbL68WZ3S5XleVfpGYypZuBSyJqYtw==}
+    dev: false
 
   /@next/swc-android-arm-eabi/13.0.3:
     resolution: {integrity: sha512-uxfUoj65CdFc1gX2q7GtBX3DhKv9Kn343LMqGNvXyuTpYTGMmIiVY7b9yF8oLWRV0gVKqhZBZifUmoPE8SJU6Q==}
