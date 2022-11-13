@@ -22,13 +22,9 @@ jobs:
           version: 7
           run_install: false
 
-      - name: Build Next.js app
-        run: pnpm build
-        env:
-          URL_PREFIX: code-yy-blog
-
-      - name: Export Next.js app
-        run: pnpm export
+      # ESLint
+      - name: Install ESLint
+        run: pnpm lint
 
       # microCMSに変更する
       # - name: Deploy to GitHub Pages
