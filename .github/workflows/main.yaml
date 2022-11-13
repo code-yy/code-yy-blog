@@ -18,15 +18,15 @@ jobs:
           node-version: 14.x
 
       - name: Install NPM packages
-        run: npm ci
+        run: pnpm ci
 
       - name: Build Next.js app
-        run: npm run build
+        run: pnpm build
         env:
           URL_PREFIX: yutodev
 
       - name: Export Next.js app
-        run: npm run export
+        run: pnpm export
 
       # microCMSに変更する
       # - name: Deploy to GitHub Pages
