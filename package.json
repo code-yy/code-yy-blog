@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --check './{bin,lib,src,tests}/**/*.{ts,tsx}'",
-    "update-rss": "node ./src/libs/rss/rss.mjs"
+    "update-rss": "node ./src/lib/rss/rss.mjs"
   },
   "dependencies": {
     "@next/font": "^13.0.3",
