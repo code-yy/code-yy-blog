@@ -5,6 +5,7 @@ import { AppBadge } from "@/component/Element";
 import { LINK } from "@/constant/link";
 import { Props } from "@/pages";
 import { Blog } from "@/module/blog";
+import { pagesPath } from "@/lib/$path";
 import { BlogCard } from "./BlogCard";
 
 export const BlogList: FC<Props<Blog[]>> = ({ blogs, categories }) => {
@@ -16,21 +17,23 @@ export const BlogList: FC<Props<Blog[]>> = ({ blogs, categories }) => {
     <Box className="mx-auto max-w-none flex-wrap justify-center sm:justify-start sm:pr-8 sm:pl-0">
       <Box className={classes.container}>
         <AppBadge text={"All"} href={LINK.HOME} isSelected={selectedHome} />
-        {categories.contents.map((category) => {
+        {categories.contents.map((category, index) => {
           const selectedCategory = router.query.slug === category.slug;
           return (
             <AppBadge
-              key={category.id}
-              text={`${category.name}`}
-              href={`/category/${category.slug}`}
+              key={index}
+              text={category.name}
+              href={pagesPath.category._slug(category.slug).$url()}
               isSelected={selectedCategory}
             />
           );
         })}
       </Box>
-      {blogs.map((blog) => (
-        <BlogCard key={blog.id} blog={blog} />
-      ))}
+      <Box className={classes.blogContainer}>
+        {blogs.map((blog, index) => (
+          <BlogCard key={index} blog={blog} />
+        ))}
+      </Box>
     </Box>
   );
 };
@@ -42,5 +45,11 @@ const useStyles = createStyles((theme) => ({
       whiteSpace: "nowrap",
       overflowX: "scroll",
     },
+  },
+
+  blogContainer: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr",
+    gap: "1.2rem",
   },
 }));

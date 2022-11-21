@@ -9,5 +9,5 @@ const parser = new Parser();
     return data;
   });
   jsonFeed = items;
-  writeFileSync("src/libs/rss/data.json", JSON.stringify(jsonFeed));
+  writeFileSync("src/lib/rss/data.json", JSON.stringify(jsonFeed));
 })();
