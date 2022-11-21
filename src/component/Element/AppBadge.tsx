@@ -1,3 +1,4 @@
+import { UrlObject } from "url";
 import { Badge, createStyles, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { FC } from "react";
@@ -5,7 +6,7 @@ import { AppLink } from "./AppLink";
 
 type Props = {
   text: string;
-  href: string;
+  href: UrlObject | string;
   isSelected: boolean;
 };
 
