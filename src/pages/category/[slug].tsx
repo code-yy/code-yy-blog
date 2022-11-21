@@ -3,6 +3,7 @@ import { Head, MainLayout } from "@/component/Layout";
 import { Blog, blogRepository } from "@/module/blog";
 import { categoryRepository } from "@/module/category";
 import { BlogList } from "@/component/Page/BlogList";
+import { rssClient } from "@/lib/rss/rss-client";
 import { Props } from "..";
 
 const CategoryBlogListPage: NextPage<Props<Blog[]>> = ({ blogs, categories }) => {
@@ -18,16 +19,21 @@ const CategoryBlogListPage: NextPage<Props<Blog[]>> = ({ blogs, categories }) =>
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await blogRepository.findCategoryPath();
-  return { paths: res, fallback: false };
+  const rss = rssClient.findCategory();
+  const paths = [...res, rss];
+  return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const blogs = await blogRepository.findCategory(context);
+  const rss = rssClient.find();
+  const isRss = context.params?.slug === rss[0].category?.slug;
+
   const categories = await categoryRepository.find();
 
   return {
     props: {
-      blogs: blogs,
+      blogs: isRss ? rss : blogs,
       categories: { contents: categories.contents },
     },
   };

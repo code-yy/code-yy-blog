@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Paper, Title, Text, createStyles } from "@mantine/core";
 import { FC } from "react";
-import { useMediaQuery } from "@mantine/hooks";
 import { AppLink } from "@/component/Element";
 import { Blog } from "@/module/blog";
+import { pagesPath } from "@/lib/$path";
 
 type Props = {
   blog: Blog;
@@ -10,11 +11,13 @@ type Props = {
 
 export const BlogCard: FC<Props> = ({ blog }) => {
   const { classes } = useStyles();
+  const href = blog.isRss ? blog.link! : pagesPath.blogs._slug(blog.slug).$url();
 
   return (
-    <AppLink href={`/blogs/${blog.slug}`}>
+    <AppLink href={href}>
       <Paper shadow="md" radius="md" className={classes.paper}>
-        <Text className="" size="xs">
+        <img src={blog.eyecatch.url} alt={"アイキャッチ"} width={300} height={300} />
+        <Text size="xs" className={classes.categoryName}>
           {blog.category.name}
         </Text>
         <Title order={3} className={classes.title}>
@@ -27,16 +30,19 @@ export const BlogCard: FC<Props> = ({ blog }) => {
 
 const useStyles = createStyles((theme) => ({
   paper: {
-    marginBottom: "15px",
-    padding: "16px",
+    padding: "18px",
+    height: "240px",
     [theme.fn.smallerThan("md")]: {
-      marginBottom: "5px",
       padding: "10px",
     },
   },
+  categoryName: {
+    marginTop: "7px",
+  },
   title: {
-    fontSize: "22px",
+    fontSize: "1rem",
     opacity: 70,
+    marginTop: "7px",
     color: theme.colors.gray[7],
     [theme.fn.smallerThan("md")]: {
       fontSize: "16px",
