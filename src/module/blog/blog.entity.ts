@@ -16,4 +16,6 @@ export class Blog {
     width?: number;
   };
   category!: Category;
+  isRss!: boolean;
+  link?: string;
 }
