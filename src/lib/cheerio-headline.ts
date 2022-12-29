@@ -19,11 +19,11 @@ export const cheerioHeadline = ($: CheerioAPI) => {
   });
 
   $("ul").each((_, element) => {
-    $(element).addClass("py-4 px-8 m-4 bg-gray-50 border border-black border-dashed");
+    $(element).addClass("py-4 px-8 m-4 bg-gray-50 border border-black border-dashed list-disc");
   });
 
   $("ol").each((_, element) => {
-    $(element).addClass("py-4 px-8 m-4 bg-gray-50 border border-black border-dashed");
+    $(element).addClass("py-4 px-8 m-4 bg-gray-50 border border-black border-dashed list-disc");
   });
 
   $("pre").each((_, element) => {
