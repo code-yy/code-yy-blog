@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from "next";
+import { GetStaticProps, NextPage } from "next/types";
 import { Head, MainLayout } from "@/component/Layout";
 import { BlogList } from "@/component/Page/BlogList";
 import { blogRepository, Blogs } from "@/module/blog";
@@ -28,12 +28,19 @@ export const getStaticProps: GetStaticProps = async () => {
   const rss = rssClient.find();
   const mergedContents = [...blogs.contents, ...rss];
 
+  mergedContents.sort((a, b) => {
+    if (a.createdAt! < b.createdAt!) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
   const categories = await categoryRepository.find();
 
   return {
     props: {
       blogs: {
-        contents: mergedContents.sort(),
+        contents: mergedContents,
         totalCount: blogs.totalCount,
         limit: blogs.limit,
         offset: blogs.offset,
