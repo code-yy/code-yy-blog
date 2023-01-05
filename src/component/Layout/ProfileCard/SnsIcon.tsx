@@ -1,7 +1,7 @@
 import { BrandTwitter, BrandGithub, BrandInstagram, BrandAmazon } from "tabler-icons-react";
 import { ActionIcon } from "@mantine/core";
 import { FC } from "react";
-import { LINK } from "@/constant/link";
+import { LINK } from "@/constant/link/link";
 import { AppLink } from "@/component/Element";
 
 const SnsIcons = [

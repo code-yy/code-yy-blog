@@ -55,7 +55,7 @@ export const MainLayout: FC<Props> = ({ children }) => {
 
 const useStyles = createStyles((theme) => ({
   root: {
-    maxWidth: "1100px",
+    maxWidth: "1200px",
     margin: "0 auto",
     padding: "16px",
     [theme.fn.smallerThan("md")]: {
@@ -66,6 +66,7 @@ const useStyles = createStyles((theme) => ({
   body: {
     [theme.fn.smallerThan("md")]: {
       flexDirection: "column",
+      marginBottom: "20px",
     },
   },
   main: {

@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { Box, createStyles } from "@mantine/core";
-import { useRouter } from "next/router";
+import { useRouter } from "next/dist/client/router";
 import { AppBadge } from "@/component/Element";
-import { LINK } from "@/constant/link";
 import { Props } from "@/pages";
 import { Blog } from "@/module/blog";
 import { pagesPath } from "@/lib/$path";
+import { LINK } from "@/constant/link";
 import { BlogCard } from "./BlogCard";
 
 export const BlogList: FC<Props<Blog[]>> = ({ blogs, categories }) => {
@@ -51,5 +51,9 @@ const useStyles = createStyles((theme) => ({
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
     gap: "1.2rem",
+    [theme.fn.smallerThan("md")]: {
+      gridTemplateColumns: "1fr 1fr",
+      marginBottom: "20px",
+    },
   },
 }));

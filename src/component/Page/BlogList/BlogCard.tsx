@@ -16,7 +16,7 @@ export const BlogCard: FC<Props> = ({ blog }) => {
   return (
     <AppLink href={href}>
       <Paper shadow="md" radius="md" className={classes.paper}>
-        <img src={blog.eyecatch.url} alt={"アイキャッチ"} width={300} height={300} />
+        <img src={blog.eyecatch.url} alt={"アイキャッチ"} width={400} height={400} />
         <Text size="xs" className={classes.categoryName}>
           {blog.category.name}
         </Text>
@@ -31,8 +31,10 @@ export const BlogCard: FC<Props> = ({ blog }) => {
 const useStyles = createStyles((theme) => ({
   paper: {
     padding: "18px",
-    height: "240px",
+    height: "260px",
     [theme.fn.smallerThan("md")]: {
+      height: "100%",
+      minHeight: "200px",
       padding: "10px",
     },
   },
