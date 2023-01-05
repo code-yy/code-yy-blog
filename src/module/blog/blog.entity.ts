@@ -3,7 +3,7 @@ import { Category } from "../category";
 export class Blog {
   id!: string;
   slug!: string;
-  createdAt?: string;
+  createdAt!: string;
   updatedAt?: string;
   publishedAt?: string;
   revisedAt?: string;

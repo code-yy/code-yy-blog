@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Badge, createStyles, Text } from "@mantine/core";
-import { useRouter } from "next/router";
 import { useMediaQuery } from "@mantine/hooks";
+import { useRouter } from "next/dist/client/router";
 import { Category as CategoryEntity } from "@/module/category";
 import { AppLink } from "@/component/Element";
 import { pagesPath } from "@/lib/$path";

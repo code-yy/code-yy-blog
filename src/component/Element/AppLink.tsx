@@ -1,4 +1,4 @@
-import Link, { LinkProps } from "next/link";
+import Link, { LinkProps } from "next/dist/client/link";
 import { AnchorHTMLAttributes, FC, ReactNode } from "react";
 
 type Props = LinkProps &
