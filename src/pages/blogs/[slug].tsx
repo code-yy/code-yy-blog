@@ -1,7 +1,8 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from "next/types";
-import { Head, MainLayout } from "@/component/Layout";
+import { Head } from "@/component/Layout";
 import { BlogDetail } from "@/component/Page/BlogDetail";
 import { Blog, blogRepository } from "@/module/blog";
+import { BlogDetailLayout } from "@/component/Layout/BlogDetailLayout";
 
 export type Props = {
   blog: Blog;
@@ -11,9 +12,9 @@ const BlogIdPage: NextPage<Props> = ({ blog }) => {
   return (
     <>
       <Head title={blog.title} description={blog.description} url={`${blog.eyecatch.url}?w=1200&h=630`} />
-      <MainLayout>
+      <BlogDetailLayout>
         <BlogDetail blog={blog} />
-      </MainLayout>
+      </BlogDetailLayout>
     </>
   );
 };

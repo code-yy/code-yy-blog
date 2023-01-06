@@ -19,6 +19,7 @@ export const theme = {
     warning: ["#ffca2c"],
     danger: ["#dc3545"],
     gray: ["#FBFBFB"],
+    black: ["#000000"],
   },
   primaryColor: "brand",
   fontFamily: "Archivo",
@@ -60,5 +61,12 @@ export const theme = {
       lg: "19px",
       xl: "22px",
     },
+  },
+  breakpoints: {
+    xs: 0,
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1200,
   },
 };

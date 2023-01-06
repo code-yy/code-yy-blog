@@ -40,7 +40,8 @@ const useStyles = createStyles((theme) => ({
     alignItems: "start",
     backgroundColor: "white",
     [theme.fn.smallerThan("md")]: {
-      width: "100%",
+      width: "95%",
+      margin: "0 10px",
     },
   },
   wrapper: {

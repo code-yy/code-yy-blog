@@ -13,8 +13,11 @@ export const Header: FC = () => {
   );
 };
 
-const useStyles = createStyles(() => ({
+const useStyles = createStyles((theme) => ({
   container: {
     margin: "16px 0",
+    [theme.fn.smallerThan("md")]: {
+      padding: "0 10px",
+    },
   },
 }));
