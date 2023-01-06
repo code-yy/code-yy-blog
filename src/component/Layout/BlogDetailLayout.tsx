@@ -2,13 +2,12 @@ import { AppShell, createStyles } from "@mantine/core";
 import { FC, ReactNode, useEffect, useState } from "react";
 import { AppLoading } from "../Element";
 import { Header } from "./Header";
-import { ProfileCard } from "./ProfileCard";
 
 type Props = {
   children: ReactNode;
 };
 
-export const MainLayout: FC<Props> = ({ children }) => {
+export const BlogDetailLayout: FC<Props> = ({ children }) => {
   const { classes } = useStyles();
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -22,7 +21,6 @@ export const MainLayout: FC<Props> = ({ children }) => {
     <>
       <AppShell
         header={<Header />}
-        aside={<ProfileCard />}
         classNames={{
           root: classes.root,
           body: classes.body,

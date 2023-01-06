@@ -44,6 +44,7 @@ const useStyles = createStyles((theme) => ({
       width: "365px",
       whiteSpace: "nowrap",
       overflowX: "scroll",
+      margin: "0 10px",
     },
   },
 
@@ -53,7 +54,7 @@ const useStyles = createStyles((theme) => ({
     gap: "1.2rem",
     [theme.fn.smallerThan("md")]: {
       gridTemplateColumns: "1fr 1fr",
-      marginBottom: "20px",
+      margin: "0 10px 20px",
     },
   },
 }));
