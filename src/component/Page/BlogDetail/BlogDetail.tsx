@@ -1,88 +1,137 @@
-import "highlight.js/styles/github.css";
-import hljs from "highlight.js";
-
-import { load } from "cheerio";
-import { FC, useEffect } from "react";
-import { Box, createStyles, Image, Paper, Text, Title, TypographyStylesProvider } from "@mantine/core";
-import { ClockHour5, Edit } from "tabler-icons-react";
-
-import { useMediaQuery } from "@mantine/hooks";
-import { cheerioHeadline } from "@/lib/cheerio-headline";
+import { FC, useEffect, useState } from "react";
+import { ActionIcon, Box, createStyles, Group, Overlay, Paper } from "@mantine/core";
+import { Menu2, X } from "tabler-icons-react";
+import tocbot from "tocbot";
 import { Props } from "@/pages/blogs/[slug]";
-import { format } from "@/lib/util/date";
+import { theme } from "@/constant/theme";
+import { useMediaQueryMin } from "@/hooks/useMediaQuery";
+import { TocCard } from "./Toc/TocCard";
+import { TocDialog } from "./Toc/TocDialog";
+import { BlogContent } from "./BlogContent";
 
 export const BlogDetail: FC<Props> = ({ blog }) => {
-  const { classes, theme } = useStyle();
-  const mediaQuery = useMediaQuery("(min-width: 768px)");
-  const iconSize = mediaQuery ? 16 : 12;
-  const dateTimeSize = mediaQuery ? "md" : "sm";
-
-  const $ = load(blog.content);
-  const content = cheerioHeadline($);
+  const [open, setOpen] = useState(false);
+  const { classes, cx } = useStyle();
+  const [largerThanMd] = useMediaQueryMin("md", true);
 
   useEffect(() => {
-    hljs.initHighlightingOnLoad();
-  }, []);
+    tocbot.init({
+      tocSelector: ".toc",
+      contentSelector: ".body",
+      headingSelector: "h2, h3, h4, h5, h6",
+      scrollSmoothOffset: -10,
+    });
+    return () => tocbot.destroy();
+  }, [largerThanMd]);
 
   return (
-    <Paper className={classes.container} radius="md">
-      <Title order={2} className={classes.title}>
-        {blog.title}
-      </Title>
-      <Box className={classes.dateContainer}>
-        <Box className={classes.dateWrapper}>
-          <ClockHour5 size={iconSize} color={theme.colors.gray[7]} />
-          <Text size={dateTimeSize}>{format(blog.createdAt)}</Text>
-        </Box>
-        <Box className={classes.dateWrapper}>
-          <Edit size={iconSize} color={theme.colors.gray[7]} />
-          <Text size={dateTimeSize}>{format(blog.updatedAt!)}</Text>
-        </Box>
-      </Box>
-      <Image
-        radius="md"
-        src={blog.eyecatch.url}
-        alt={`${blog.eyecatch.url}のアイキャッチ`}
-        className={classes.eyecatch}
-      />
-      <TypographyStylesProvider>
-        <Box dangerouslySetInnerHTML={{ __html: content.html() }} />
-      </TypographyStylesProvider>
-    </Paper>
+    <Box className={classes.mainContainer}>
+      {!largerThanMd && (
+        <>
+          <Paper
+            my="md"
+            p="md"
+            radius="md"
+            shadow="xs"
+            onClick={() => setOpen(false)}
+            className={cx(`${open ? "" : "hidden"}`, "fixed top-[17%] left-[50%] z-[300] ml-[-46%] w-[90%]")}
+          >
+            <TocDialog />
+          </Paper>
+          <Group
+            position="right"
+            align="flex-end"
+            sx={() => ({
+              display: "flex",
+              alignItems: "center",
+              top: "2rem",
+              position: "sticky",
+              zIndex: 300,
+            })}
+          >
+            <ActionIcon
+              variant="filled"
+              aria-label="toc"
+              radius={100}
+              sx={() => ({
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                margin: "0 10px 10px 0",
+                color: open ? theme.colors.primary : "white",
+                backgroundColor: open ? "white" : theme.colors.primary,
+                "&:hover": {
+                  color: open ? theme.colors.primary : "white",
+                  backgroundColor: open ? "white" : theme.colors.primary,
+                },
+              })}
+              size={56}
+              onClick={() => setOpen(!open)}
+            >
+              {open ? <X size={32} /> : <Menu2 size={32} />}
+            </ActionIcon>
+          </Group>
+        </>
+      )}
+
+      <BlogContent blog={blog} />
+      {open && (
+        <Overlay
+          color="black"
+          opacity={0.5}
+          zIndex={200}
+          sx={() => ({ position: "fixed" })}
+          onClick={() => setOpen(false)}
+        />
+      )}
+
+      {largerThanMd && (
+        <aside className={classes.toc}>
+          <TocCard />
+        </aside>
+      )}
+    </Box>
   );
 };
 
 const useStyle = createStyles((theme) => ({
-  container: {
-    marginRight: "2rem",
-    padding: "24px",
-    backgroundColor: "white",
+  mainContainer: {
+    display: "flex",
+    position: "relative",
     [theme.fn.smallerThan("md")]: {
-      padding: "10px",
-      margin: "0 0 20px",
+      flexDirection: "column",
     },
   },
-  title: {
-    fontSize: "26px",
+  toc: {
+    minWidth: "300px",
+    top: "2rem",
+    position: "sticky",
+  },
+  tocDialog: {
+    display: "none",
     [theme.fn.smallerThan("md")]: {
-      fontSize: "20px",
+      position: "fixed",
+      top: "0",
+      left: "0",
     },
   },
-  dateContainer: {
-    display: "flex",
-    alignItems: "center",
-    gap: "20px",
-    margin: "16px 0",
+  tocButton: {
+    top: "2rem",
+    position: "sticky",
+    marginBottom: "10px",
+    marginLeft: "10px",
+    borderRadius: "50%",
+    width: "56px",
+    height: "56px",
   },
-  dateWrapper: {
-    display: "flex",
-    alignItems: "center",
-    gap: "5px",
+  menu: {
+    [theme.fn.smallerThan("md")]: {
+      backgroundColor: "rgb(1, 44, 107)",
+    },
   },
-  eyecatch: {
-    width: "60%",
-    margin: "0 auto",
-    marginBottom: "40px",
-    [theme.fn.smallerThan("md")]: {},
+  close: {
+    [theme.fn.smallerThan("md")]: {
+      backgroundColor: "white",
+    },
   },
 }));

@@ -29,6 +29,7 @@ specifiers:
   rss-parser: ^3.12.0
   tabler-icons-react: ^1.56.0
   tailwindcss: ^3.0.24
+  tocbot: ^4.19.0
   typescript: ^4.7.2
 
 dependencies:
@@ -42,6 +43,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   rss-parser: 3.12.0
   tabler-icons-react: 1.56.0_react@18.2.0
+  tocbot: 4.19.0
 
 devDependencies:
   '@mantine/core': 4.2.12_kmy67mn22ng6hmkzqkwizj5jve
@@ -3196,6 +3198,10 @@ packages:
     dependencies:
       is-number: 7.0.0
     dev: true
+
+  /tocbot/4.19.0:
+    resolution: {integrity: sha512-sI/+XAh+Byn/zRSlmJnTJW37iqpRZc2RugnHCbQh4dBGOM3MYAlg2X7iXaWI9vrUhesC+SkPYerIP7nhs1X+4A==}
+    dev: false
 
   /tr46/0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
