@@ -11,12 +11,12 @@ export const TocDialog: FC = () => {
         mb="sm"
         size="lg"
         weight="bold"
-        sx={() => ({ color: theme.colors.primary })}
+        sx={() => ({ color: theme.colors.black })}
         className="absolute top-0"
       >
         目次
       </Text>
-      <Divider mt="xl" size="sm" sx={() => ({ borderColor: theme.colors.primary })} />
+      <Divider mt="xl" size="sm" sx={() => ({ borderColor: theme.colors.black })} />
       <Box mt="md" className="max-h-[350px] overflow-y-scroll">
         <Toc />
       </Box>

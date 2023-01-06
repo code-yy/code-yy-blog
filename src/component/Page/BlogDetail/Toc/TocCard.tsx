@@ -9,13 +9,13 @@ export const TocCard: FC = () => {
   return (
     <Paper p="md" radius="md" shadow="xs" className={classes.root}>
       <Group spacing="xs" direction="column">
-        <Text size="lg" weight="bold" sx={() => ({ color: theme.colors.primary })}>
+        <Text size="lg" weight="bold" sx={() => ({ color: theme.colors.black })}>
           目次
         </Text>
         <Divider
           size="sm"
           sx={() => ({
-            borderColor: theme.colors.primary,
+            borderColor: theme.colors.black,
             width: "100%",
           })}
         />

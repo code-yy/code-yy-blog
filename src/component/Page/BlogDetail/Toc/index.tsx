@@ -1,6 +1,5 @@
 import { Box, createStyles } from "@mantine/core";
 import { FC } from "react";
-import { theme } from "@/constant/theme";
 
 export const Toc: FC = () => {
   const { classes, cx } = useStyles();
@@ -8,7 +7,7 @@ export const Toc: FC = () => {
   return <Box className={cx("toc", classes.toc)} />;
 };
 
-const useStyles = createStyles(() => {
+const useStyles = createStyles((theme) => {
   return {
     toc: {
       a: {
@@ -23,6 +22,9 @@ const useStyles = createStyles(() => {
         width: "100%",
         maxWidth: "260px",
         fontSize: "14px",
+        [theme.fn.smallerThan("md")]: {
+          maxWidth: "100%",
+        },
         "&:hover": {
           opacity: 1,
         },

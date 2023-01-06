@@ -87,6 +87,5 @@ const useStyle = createStyles((theme) => ({
     width: "60%",
     margin: "0 auto",
     marginBottom: "40px",
-    [theme.fn.smallerThan("md")]: {},
   },
 }));

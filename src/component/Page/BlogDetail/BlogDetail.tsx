@@ -58,11 +58,11 @@ export const BlogDetail: FC<Props> = ({ blog }) => {
                 alignItems: "center",
                 justifyContent: "center",
                 margin: "0 10px 10px 0",
-                color: open ? theme.colors.primary : "white",
-                backgroundColor: open ? "white" : theme.colors.primary,
+                color: open ? theme.colors.black : "white",
+                backgroundColor: open ? "white" : theme.colors.black,
                 "&:hover": {
-                  color: open ? theme.colors.primary : "white",
-                  backgroundColor: open ? "white" : theme.colors.primary,
+                  color: open ? theme.colors.black : "white",
+                  backgroundColor: open ? "white" : theme.colors.black,
                 },
               })}
               size={56}
