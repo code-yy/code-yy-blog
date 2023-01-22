@@ -31,6 +31,7 @@ specifiers:
   tailwindcss: ^3.0.24
   tocbot: ^4.19.0
   typescript: ^4.7.2
+  zenn-cli: ^0.1.135
 
 dependencies:
   '@next/font': 13.0.3
@@ -44,6 +45,7 @@ dependencies:
   rss-parser: 3.12.0
   tabler-icons-react: 1.56.0_react@18.2.0
   tocbot: 4.19.0
+  zenn-cli: 0.1.135
 
 devDependencies:
   '@mantine/core': 4.2.12_kmy67mn22ng6hmkzqkwizj5jve
@@ -3418,3 +3420,9 @@ packages:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
     dev: true
+
+  /zenn-cli/0.1.135:
+    resolution: {integrity: sha512-R7s4yEdcWJ7U1EhjW0AwqWVOcx92xLx0nebE840HD1DGfoxYUsHT9vD4g8voBHeO4Yl8oj/U6zfRk1kLcyAnIQ==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dev: false
