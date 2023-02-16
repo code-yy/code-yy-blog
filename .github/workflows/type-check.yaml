@@ -5,7 +5,7 @@ on:
 
 jobs:
   call-workflow:
-    uses: .github/workflows/main.yaml
+    uses: ./.github/workflows/main.yaml
 
   test:
     runs-on: ubuntu-latest
