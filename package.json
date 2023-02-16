@@ -1,7 +1,23 @@
 {
   "name": "yutodev",
+  "description": "a next.js blog of yuto",
   "version": "0.1.0",
-  "private": true,
+  "engines": {
+    "node": ">=14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/code-yy/yutodev.git"
+  },
+  "author": {
+    "name": "Yuto Yoshino",
+    "email": "codeyy021@gmail.com",
+    "url": "https://yutodev.vercel.app/"
+  },
+  "bugs": {
+    "url": "https://github.com/code-yy/yutodev/issues"
+  },
+  "homepage": "https://github.com/code-yy/yutodev#readme",
   "scripts": {
     "dev": "run-p dev:*",
     "dev:next": "next dev",
@@ -10,7 +26,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --check './{bin,lib,src,tests}/**/*.{ts,tsx}'",
-    "update-rss": "node ./src/lib/rss/rss.mjs"
+    "update-rss": "node ./src/lib/rss/rss.mjs",
+    "typecheck": "tsc -p . --noEmit"
   },
   "dependencies": {
     "@next/font": "^13.0.3",
