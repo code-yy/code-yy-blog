@@ -4,8 +4,8 @@ on:
   push:
 
 jobs:
-  call-workflow:
-    uses: ./.github/workflows/main.yaml@v1
+  call-workflow-1-in-local-repo:
+    uses: ./.github/workflows/main.yaml
 
   test:
     runs-on: ubuntu-latest
