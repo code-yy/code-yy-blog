@@ -2,12 +2,10 @@ name: type-check
 
 on:
   push:
-    branches-ignore:
-      - "deployment/**"
 
 jobs:
   call-workflow:
-    uses: code-yy/yutodev/.github/workflows/main.yaml@v1
+    uses: .github/workflows/main.yaml
 
   test:
     runs-on: ubuntu-latest
