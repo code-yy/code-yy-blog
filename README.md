@@ -1,4 +1,3 @@
-
 # yutodev
 
 Personal Blog
@@ -16,11 +15,9 @@ Install my-project with pnpm
 
   pnpm dev
 ```
-    
 
 ## Tech Stack
 
 **Client:** React, Next.js, TypeScript, Mantine, TailwindCSS, pathpida, Prettier, ESLint
 
 **Server:** microCMS
-
