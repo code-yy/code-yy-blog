@@ -11,7 +11,7 @@ export type Props = {
 const BlogIdPage: NextPage<Props> = ({ blog }) => {
   return (
     <>
-      <Head title={blog.title} description={blog.description} url={`${blog.eyecatch.url}?w=1200&h=630`} />
+      <Head title={blog.title} description={blog.description} url={blog.eyecatch.url} />
       <BlogDetailLayout>
         <BlogDetail blog={blog} />
       </BlogDetailLayout>

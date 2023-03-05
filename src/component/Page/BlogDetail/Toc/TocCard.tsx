@@ -8,7 +8,7 @@ export const TocCard: FC = () => {
 
   return (
     <Paper p="md" radius="md" shadow="xs" className={classes.root}>
-      <Group spacing="xs" direction="column">
+      <Group spacing="xs">
         <Text size="lg" weight="bold" sx={() => ({ color: theme.colors.black })}>
           目次
         </Text>

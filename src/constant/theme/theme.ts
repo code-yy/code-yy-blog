@@ -1,72 +1,45 @@
-export const theme = {
+import { MantineTheme, DEFAULT_THEME } from "@mantine/core";
+
+export const theme: MantineTheme = {
+  ...DEFAULT_THEME,
+  /**
+   * @url https://v1.mantine.dev/pages/theming/#colors
+   */
+  colorScheme: "dark",
   colors: {
-    brand: [
-      "#0058FF",
-      "#0058FF",
-      "#0058FF",
-      "#0058FF",
-      "#0058FF",
-      "#0058FF",
-      "#0058FF",
-      "#0058FF",
-      "#0058FF",
-      "#0058FF",
+    ...DEFAULT_THEME.colors,
+    gray: [
+      "#F3F4F6",
+      "#0c0c0c",
+      "#111827",
+      "#DEE2E6",
+      "#CED4DA",
+      "#ADB5BD",
+      "#868E96",
+      "#495057",
+      "#343A40",
+      "#212529",
     ],
-    primary: ["#0058FF"],
-    secondary: ["#00A7F4"],
-    success: ["#157347"],
-    info: ["#31d2f2"],
-    warning: ["#ffca2c"],
-    danger: ["#dc3545"],
-    gray: ["#FBFBFB"],
-    black: ["#000000"],
+    dark: [
+      "#F3F4F6",
+      "#8c8fa3",
+      "#666980",
+      "#4d4f66",
+      "#34354a",
+      "#2b2c3d",
+      "#1d1e30",
+      "#000000",
+      "#0c0d21",
+      "#01010a",
+    ],
   },
-  primaryColor: "brand",
-  fontFamily: "Archivo",
-  fontSizes: {
-    xs: 13,
-    sm: 14,
-    md: 15,
-    lg: 17,
-    xl: 19,
-  },
-  lineHeight: "19px",
-  headings: {
-    fontFamily: "Archivo",
-    fontWeight: 500,
-    sizes: {
-      h1: { fontSize: "38px", lineHeight: "48px" },
-      h2: { fontSize: "30px", lineHeight: "40px" },
-      h3: { fontSize: "22px", lineHeight: "26px" },
-      h4: { fontSize: "17px", lineHeight: "24px" },
-      h5: { fontSize: "15px", lineHeight: "20px" },
+
+  globalStyles: (theme) => ({
+    body: {
+      ...theme.fn.fontStyles(),
+      backgroundColor: theme.colors.dark[7],
+      color: theme.colors.gray[0],
+      lineHeight: theme.lineHeight,
     },
-  },
-  radius: {
-    xs: 0,
-    sm: 0,
-    md: 0,
-    lg: 0,
-    xl: 0,
-  },
-  other: {
-    defaultText: {
-      desktop: "lg",
-      mobile: "sm",
-    },
-    lineHeights: {
-      xs: "14px",
-      sm: "15px",
-      md: "17px",
-      lg: "19px",
-      xl: "22px",
-    },
-  },
-  breakpoints: {
-    xs: 0,
-    sm: 576,
-    md: 768,
-    lg: 992,
-    xl: 1200,
-  },
+  }),
 };

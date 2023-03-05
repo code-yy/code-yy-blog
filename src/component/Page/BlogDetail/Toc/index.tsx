@@ -12,7 +12,7 @@ const useStyles = createStyles((theme) => {
     toc: {
       a: {
         opacity: 0.5,
-        color: theme.colors.primary,
+        color: theme.colors.gray[0],
         textDecoration: "none",
         display: "block",
         whiteSpace: "nowrap",

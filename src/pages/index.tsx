@@ -1,23 +1,21 @@
 import { GetStaticProps, NextPage } from "next/types";
 import { Head, MainLayout } from "@/component/Layout";
-import { BlogList } from "@/component/Page/BlogList";
+import { Home } from "@/component/Page/Home";
 import { blogRepository, Blogs } from "@/module/blog";
-import { Categories, categoryRepository } from "@/module/category";
 import { rssClient } from "@/lib/rss/rss-client";
 
-export type Props<T> = {
-  blogs: T;
-  categories: Categories;
+type Props = {
+  blogs: Blogs;
 };
 
-const HomePage: NextPage<Props<Blogs>> = ({ blogs, categories }) => {
+const HomePage: NextPage<Props> = ({ blogs }) => {
   const { contents } = blogs;
 
   return (
     <>
       <Head />
       <MainLayout>
-        <BlogList blogs={contents} categories={categories} />
+        <Home blogs={contents} />
       </MainLayout>
     </>
   );
@@ -35,7 +33,6 @@ export const getStaticProps: GetStaticProps = async () => {
       return -1;
     }
   });
-  const categories = await categoryRepository.find();
 
   return {
     props: {
@@ -45,7 +42,6 @@ export const getStaticProps: GetStaticProps = async () => {
         limit: blogs.limit,
         offset: blogs.offset,
       },
-      categories: { contents: categories.contents },
     },
   };
 };

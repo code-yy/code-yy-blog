@@ -1,17 +1,19 @@
 import { FC, useEffect, useState } from "react";
-import { ActionIcon, Box, createStyles, Group, Overlay, Paper } from "@mantine/core";
-import { Menu2, X } from "tabler-icons-react";
+import { ActionIcon, Box, Group, Overlay, Paper } from "@mantine/core";
 import tocbot from "tocbot";
+import { AiOutlineMenu } from "react-icons/ai";
+import { MdOutlineCancel } from "react-icons/md";
 import { Props } from "@/pages/blogs/[slug]";
 import { theme } from "@/constant/theme";
 import { useMediaQueryMin } from "@/hooks/useMediaQuery";
 import { TocCard } from "./Toc/TocCard";
 import { TocDialog } from "./Toc/TocDialog";
-import { BlogContent } from "./BlogContent";
+import { BlogContent } from "./Content";
+import { useStyles } from "./elements";
 
 export const BlogDetail: FC<Props> = ({ blog }) => {
   const [open, setOpen] = useState(false);
-  const { classes, cx } = useStyle();
+  const { classes, cx } = useStyles();
   const [largerThanMd] = useMediaQueryMin("md", true);
 
   useEffect(() => {
@@ -34,10 +36,11 @@ export const BlogDetail: FC<Props> = ({ blog }) => {
             radius="md"
             shadow="xs"
             onClick={() => setOpen(false)}
-            className={cx(`${open ? "" : "hidden"}`, "fixed top-[17%] left-[50%] z-[300] ml-[-46%] w-[90%]")}
+            className={cx(classes.tocDialogContainer, open ? undefined : classes.tocDialogContainerHidden)}
           >
             <TocDialog />
           </Paper>
+
           <Group
             position="right"
             align="flex-end"
@@ -58,7 +61,7 @@ export const BlogDetail: FC<Props> = ({ blog }) => {
                 alignItems: "center",
                 justifyContent: "center",
                 margin: "0 10px 10px 0",
-                color: open ? theme.colors.black : "white",
+                color: open ? theme.colors.gray[7] : "white",
                 backgroundColor: open ? "white" : theme.colors.black,
                 "&:hover": {
                   color: open ? theme.colors.black : "white",
@@ -68,13 +71,14 @@ export const BlogDetail: FC<Props> = ({ blog }) => {
               size={56}
               onClick={() => setOpen(!open)}
             >
-              {open ? <X size={32} /> : <Menu2 size={32} />}
+              {open ? <MdOutlineCancel size={32} /> : <AiOutlineMenu size={32} />}
             </ActionIcon>
           </Group>
         </>
       )}
 
       <BlogContent blog={blog} />
+
       {open && (
         <Overlay
           color="black"
@@ -93,45 +97,3 @@ export const BlogDetail: FC<Props> = ({ blog }) => {
     </Box>
   );
 };
-
-const useStyle = createStyles((theme) => ({
-  mainContainer: {
-    display: "flex",
-    position: "relative",
-    [theme.fn.smallerThan("md")]: {
-      flexDirection: "column",
-    },
-  },
-  toc: {
-    minWidth: "300px",
-    top: "2rem",
-    position: "sticky",
-  },
-  tocDialog: {
-    display: "none",
-    [theme.fn.smallerThan("md")]: {
-      position: "fixed",
-      top: "0",
-      left: "0",
-    },
-  },
-  tocButton: {
-    top: "2rem",
-    position: "sticky",
-    marginBottom: "10px",
-    marginLeft: "10px",
-    borderRadius: "50%",
-    width: "56px",
-    height: "56px",
-  },
-  menu: {
-    [theme.fn.smallerThan("md")]: {
-      backgroundColor: "rgb(1, 44, 107)",
-    },
-  },
-  close: {
-    [theme.fn.smallerThan("md")]: {
-      backgroundColor: "white",
-    },
-  },
-}));
