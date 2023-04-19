@@ -1,48 +1,33 @@
 import { GetStaticProps, NextPage } from "next/types";
 import { Head, MainLayout } from "@/component/Layout";
 import { Home } from "@/component/Page/Home";
-import { blogRepository, Blogs } from "@/module/blog";
-import { rssClient } from "@/lib/rss/rss-client";
+import { Post, getAllPosts } from "@/lib/api";
 
 type Props = {
-  blogs: Blogs;
+  posts: Post[];
 };
 
-const HomePage: NextPage<Props> = ({ blogs }) => {
-  const { contents } = blogs;
-
+const HomePage: NextPage<Props> = ({ posts }) => {
   return (
     <>
       <Head />
+
       <MainLayout>
-        <Home blogs={contents} />
+        <Home posts={posts} />
       </MainLayout>
     </>
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const blogs = await blogRepository.find();
-  const rss = rssClient.find();
-  const mergedContents = [...blogs.contents, ...rss];
+type Response = {
+  posts: Post[];
+};
 
-  mergedContents.sort((a, b) => {
-    if (a.createdAt! < b.createdAt!) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+export const getStaticProps: GetStaticProps<Response> = async () => {
+  const posts = getAllPosts(["title", "date", "slug", "author", "coverImage", "excerpt", "published", "emoji"]);
 
   return {
-    props: {
-      blogs: {
-        contents: mergedContents,
-        totalCount: blogs.totalCount,
-        limit: blogs.limit,
-        offset: blogs.offset,
-      },
-    },
+    props: { posts },
   };
 };
 

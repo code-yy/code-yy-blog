@@ -1,6 +1,5 @@
 import { AppShell } from "@mantine/core";
 import { FC, ReactNode, useEffect, useState } from "react";
-import { AppLoading } from "../../Core";
 import { Header } from "../Header";
 import { useStyles } from "./elements";
 
@@ -14,9 +13,11 @@ export const MainLayout: FC<Props> = ({ children }) => {
 
   useEffect(() => {
     setIsLoading(false);
-  }, [isLoading]);
+  }, []);
 
-  if (isLoading) return <AppLoading />;
+  if (isLoading) {
+    return null;
+  }
 
   return (
     <AppShell

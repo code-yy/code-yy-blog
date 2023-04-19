@@ -1,8 +1,7 @@
 ---
-title: "NextAuthで指定したギルドユーザー限定のDiscordログインを実装する"
+title: "NextAuth で指定したギルドユーザー限定の Discord ログインを実装する"
 emoji: "🔒"
-type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["nextjs", "typescript", "nextauth", "discord"]
+date: "2023/01/22"
 published: true
 ---
 

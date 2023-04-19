@@ -8,11 +8,10 @@ type Props = {
 };
 
 export const Head: FC<Props> = ({ title, description, url }) => {
-  const _title = title ?? "ユウトブログ";
+  const _title: string = title ?? "ユウトブログ";
   const _description: string = description ?? "技術ブログや、近況報告などをやっていきます";
   const _url: string =
-    url ??
-    "https://lh3.googleusercontent.com/wR7ElVGqrF2okr0ibllfrVAA5-uEKcrXjr4xDjX9lA4YC4f_8x8_jl6vLDSAfbOFMn5uDemDz2q-6-h-pwbHLV_0GaZjl04pZ7UhpYw=s0";
+    url ?? "https://user-images.githubusercontent.com/87469023/233515022-26b256e8-8208-4a62-8621-aea4a9359742.png";
 
   return (
     <>
@@ -28,7 +27,7 @@ export const Head: FC<Props> = ({ title, description, url }) => {
         {/* Twitter */}
         <meta name="twitter:site" content="@codeyy_dev" />
         <meta name="twitter:image" content={_url} />
-        <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
+        <meta name="twitter:card" content="summary" />
       </NextHead>
     </>
   );
