@@ -3,11 +3,11 @@ import { createStyles } from "@mantine/core";
 export const useStyles = createStyles((theme) => ({
   paper: {
     display: "flex",
-    padding: "10px",
+    padding: "24px 0",
     borderBottom: `1px solid ${theme.colors.gray[2]}`,
-    flexDirection: "column",
 
     [theme.fn.largerThan("sm")]: {
+      padding: "24px",
       flexDirection: "row",
     },
   },
@@ -42,7 +42,7 @@ export const useStyles = createStyles((theme) => ({
     marginTop: "12px",
 
     [theme.fn.largerThan("sm")]: {
-      marginTp: "0",
+      marginTop: "0",
       marginLeft: "32px",
     },
   },
