@@ -4,14 +4,12 @@ import NextHead from "next/head";
 type Props = {
   title?: string;
   description?: string;
-  url?: string;
 };
 
-export const Head: FC<Props> = ({ title, description, url }) => {
+export const Head: FC<Props> = ({ title, description }) => {
   const _title: string = title ?? "ユウトブログ";
   const _description: string = description ?? "技術ブログや、近況報告などをやっていきます";
-  const _url: string =
-    url ?? "https://user-images.githubusercontent.com/87469023/233515022-26b256e8-8208-4a62-8621-aea4a9359742.png";
+  const _url = "https://user-images.githubusercontent.com/87469023/233515022-26b256e8-8208-4a62-8621-aea4a9359742.png";
 
   return (
     <>
