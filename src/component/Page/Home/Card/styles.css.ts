@@ -1,5 +1,22 @@
 import { style } from "@vanilla-extract/css";
 
+export const paper = style({
+  display: "flex",
+  padding: "24px",
+  borderRadius: "12px",
+  boxShadow: "0 4px 4px rgba(0, 0, 0, 0.25)",
+
+  "@media": {
+    "screen and (max-width: 768px)": {
+      padding: "24px 0",
+      flexDirection: "row",
+      borderBottom: `1px solid #111827`,
+      boxShadow: "none",
+      borderRadius: "0",
+    },
+  },
+});
+
 export const postCardEmoji = style({
   display: "flex",
   alignItems: "center",
@@ -43,4 +60,9 @@ export const title = style({
       fontSize: "16.5px",
     },
   },
+});
+
+export const createdAt = style({
+  margin: "0",
+  fontSize: "14px",
 });
