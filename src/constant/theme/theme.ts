@@ -2,10 +2,6 @@ import { MantineTheme, DEFAULT_THEME } from "@mantine/core";
 
 export const theme: MantineTheme = {
   ...DEFAULT_THEME,
-  /**
-   * @url https://v1.mantine.dev/pages/theming/#colors
-   */
-  colorScheme: "dark",
   colors: {
     ...DEFAULT_THEME.colors,
     gray: [
@@ -37,8 +33,6 @@ export const theme: MantineTheme = {
   globalStyles: (theme) => ({
     body: {
       ...theme.fn.fontStyles(),
-      backgroundColor: theme.colors.dark[7],
-      color: theme.colors.gray[0],
       lineHeight: theme.lineHeight,
     },
   }),

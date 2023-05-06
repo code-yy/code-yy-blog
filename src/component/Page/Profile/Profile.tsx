@@ -1,23 +1,21 @@
 import { FC, memo } from "react";
-import { Box, List } from "@mantine/core";
+import { List } from "@mantine/core";
 import { Headline } from "@/component/Core/Headline";
 import { AppLink } from "@/component/Core";
-import { Text } from "./Text";
-import { useStyles } from "./elements";
+import { Text } from "./Text/Text";
 import { SnsList } from "./constants";
+import { line, link, linkContainer } from "./styles.css";
 
 export const Profile: FC = memo(() => {
-  const { classes } = useStyles();
-
   return (
     <>
-      <Headline title={"About Me"} urlTitle={"about-me"} size={30} order={2} />
+      <Headline title={"About Me"} urlTitle={"about-me"} />
 
       <Text text={"21歳のフロントエンドエンジニアとして働いているユウトです。出身は日本です。🇯🇵🏯"} />
       <Text text={"TypeScript, Reactを主に触っており、最近ではWebパフォーマンスに興味があります。"} />
 
       {/* border */}
-      <Box className={classes.line} />
+      <div className={line} />
 
       <Text
         text={
@@ -31,18 +29,16 @@ export const Profile: FC = memo(() => {
       />
 
       {/* border */}
-      <Box className={classes.line} />
+      <div className={line} />
 
-      <List className={classes.linkContainer}>
-        {SnsList.map(({ id, title, href }) => {
-          return (
-            <List.Item key={id}>
-              <AppLink href={href} className={classes.link}>
-                {title}
-              </AppLink>
-            </List.Item>
-          );
-        })}
+      <List className={linkContainer}>
+        {SnsList.map(({ id, title, href }) => (
+          <List.Item key={`${id}-${title}`}>
+            <AppLink href={href} className={link}>
+              {title}
+            </AppLink>
+          </List.Item>
+        ))}
       </List>
     </>
   );
