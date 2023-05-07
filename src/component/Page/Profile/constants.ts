@@ -1,4 +1,12 @@
-export const SnsList = [
+type SnsTitle = "Twitter" | "GitHub" | "LinkedIn" | "Instagram" | "Email" | "Zenn";
+
+type Sns = {
+  id: number;
+  title: SnsTitle;
+  href: string;
+};
+
+export const SnsList: Sns[] = [
   {
     id: 1,
     title: "Twitter",
@@ -15,13 +23,13 @@ export const SnsList = [
     href: "https://www.linkedin.com/in/yutodev",
   },
   {
-    id: 4,
-    title: "Instagram",
-    href: "https://www.instagram.com/_yuto76",
-  },
-  {
     id: 5,
     title: "Email",
     href: "mailto:codeyy021@gmail.com",
+  },
+  {
+    id: 6,
+    title: "Zenn",
+    href: "https://zenn.dev/yuto76",
   },
 ];

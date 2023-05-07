@@ -11,6 +11,12 @@ export const linkContainer = style({
   fontWeight: 500,
 });
 
+export const resumeLinkContainer = style({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "end",
+});
+
 export const link = style({
   textUnderlinePosition: "under",
   textDecorationLine: "underline",
