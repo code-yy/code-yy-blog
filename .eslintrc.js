@@ -19,8 +19,8 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
 
     /**
-     * @url https://github.com/facebook/react/issues/18235#issuecomment-898636301
      * useCallbackなどの以前関係を保存時に自動保管
+     * @see {@link https://github.com/facebook/react/issues/18235#issuecomment-898636301} for details.
      */
     "react-hooks/exhaustive-deps": ["warn", { enableDangerousAutofixThisMayCauseInfiniteLoops: true }],
   },

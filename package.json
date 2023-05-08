@@ -26,8 +26,8 @@
     "start": "next start -p 1000",
     "lint": "next lint",
     "format": "prettier --check './{bin,lib,src,tests}/**/*.{ts,tsx}'",
-    "update-rss": "node ./src/lib/rss/rss.mjs",
-    "typecheck": "tsc -p . --noEmit"
+    "typecheck": "tsc -p . --noEmit",
+    "create:post": "node ./src/lib/util/post/generate-post.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
