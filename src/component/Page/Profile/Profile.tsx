@@ -30,7 +30,7 @@ export const Profile: FC = memo(() => {
       />
 
       <div className={resumeLinkContainer}>
-        <AppLink href={"https://code-yy.github.io/resume/"} className={link}>
+        <AppLink href={"https://yossydev.github.io/resume/"} className={link}>
           Resumeを見る →
         </AppLink>
       </div>
