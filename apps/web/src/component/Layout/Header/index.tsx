@@ -3,7 +3,7 @@ import { FC } from "react";
 import { BsGithub, BsTwitter } from "react-icons/bs";
 import { pagesPath } from "@/lib/$path";
 import { LINK } from "@/constant/link";
-import { AppLink } from "../../Core";
+import { AppLink } from "@/component/Core";
 import { useStyles } from "./elements";
 
 export const Header: FC = () => {

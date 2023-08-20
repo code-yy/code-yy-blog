@@ -1,0 +1,12 @@
+
+> yutodev@0.1.0 start /Users/s20106/Desktop/yutodev/apps/web
+> NEXT_PUBLIC_APP_ENV=production next start -p 1000
+
+ready - started server on 0.0.0.0:1000, url: http://localhost:1000
+warn  - Invalid next.config.js options detected: 
+  - The value at .experimental has an unexpected property, optimizeFonts, which is not in the list of allowed properties (adjustFontFallbacks, adjustFontFallbacksWithSizeAdjust, allowedRevalidateHeaderKeys, amp, cpus, craCompat, disableOptimizedLoading, disablePostcssPresetEnv, esmExternals, appDir, externalDir, fallbackNodePolyfills, fetchCache, forceSwcTransforms, fullySpecified, gzipSize, incrementalCacheHandlerPath, isrFlushToDisk, isrMemoryCacheSize, largePageDataBytes, legacyBrowsers, manualClientBasePath, middlewarePrefetch, newNextLinkBehavior, nextScriptWorkers, optimizeCss, optimisticClientCache, outputFileTracingRoot, outputFileTracingIgnores, pageEnv, preCompiledNextServer, proxyTimeout, runtime, serverComponentsExternalPackages, scrollRestoration, sharedPool, sri, swcFileReading, swcMinify, swcMinifyDebugOptions, swcPlugins, swcTraceProfiling, urlImports, enableUndici, workerThreads, fontLoaders, webVitalsAttribution, mdxRs, turbopackLoaders, turbotrace).
+
+See more info here: https://nextjs.org/docs/messages/invalid-next-config
+warn  - You have enabled experimental feature (optimizeFonts) in next.config.js.
+warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.
+
