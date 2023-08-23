@@ -18,7 +18,7 @@
     "lint:fix": "turbo run lint -- --fix",
     "format": "prettier --check './{bin,lib,src,tests}/**/*.{ts,tsx}'",
     "typecheck": "tsc -p . --noEmit",
-    "create:post": "node ./src/lib/util/post/generate-post.mjs"
+    "create:post": "node ./apps/web/src/lib/util/post/generate-post.mjs"
   },
   "devDependencies": {
     "@turbo/gen": "^1.10.6",
