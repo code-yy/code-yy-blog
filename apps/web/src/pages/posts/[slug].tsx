@@ -12,7 +12,7 @@ type Props = {
 const BlogDetailPage: NextPage<Props> = ({ blog }) => {
   return (
     <>
-      <Head title={blog.title} description={blog.content} />
+      <Head title={blog.title} description={blog.content} imageUrl={blog.ogImage} />
 
       {/* Zenn 埋め込みコンテンツ表示用 */}
       <Script src="https://embed.zenn.studio/js/listen-embed-event.js" />

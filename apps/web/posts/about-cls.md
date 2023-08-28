@@ -1,6 +1,7 @@
 ---
 title: "Core Web Vitals の CLS について"
 emoji: "📝"
+ogImage: "/ogp/ogp-cls.png"
 date: "2023/03/21"
 published: true
 ---

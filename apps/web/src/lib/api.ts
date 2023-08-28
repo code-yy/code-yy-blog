@@ -14,9 +14,7 @@ export type Post = {
   slug: string;
   emoji: string;
   content: string;
-  ogImage: {
-    url: string;
-  };
+  ogImage: string;
   coverImage: string;
   published: boolean;
 };
