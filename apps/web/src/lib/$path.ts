@@ -14,6 +14,10 @@ export type PagesPath = typeof pagesPath
 
 export const staticPath = {
   god_png: '/god.png',
+  ogp: {
+    ogp_cls_png: '/ogp/ogp-cls.png',
+    ogp_javascript_png: '/ogp/ogp-javascript.png'
+  },
   ogp_png: '/ogp.png',
   profile_image_png: '/profile-image.png'
 } as const

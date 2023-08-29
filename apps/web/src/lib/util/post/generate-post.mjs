@@ -4,7 +4,7 @@ import { createInterface } from "readline";
 
 const MIN_TITLE_LENGTH = 1;
 const MIN_EMOJI_LENGTH = 1;
-const POSTS_DIR = "_posts";
+const POSTS_DIR = "./apps/web/posts";
 
 const __dirname = resolve();
 const templatePath = join(__dirname, `${POSTS_DIR}/template.md`);
