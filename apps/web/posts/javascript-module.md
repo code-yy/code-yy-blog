@@ -2,7 +2,7 @@
 title: "JavaScriptのモジュール(CommonJS / ESModules)について"
 emoji: "👾"
 ogImage: "/ogp/ogp-javascript.png"
-date: "2023/08/31"
+date: "2023/08/29"
 published: true
 ---
 
