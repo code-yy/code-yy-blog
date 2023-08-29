@@ -1,15 +1,15 @@
 # yutodev
 
-Personal Blog
+<img width="100%" src="https://github.com/yossydev/blog/assets/87469023/b4eee13e-5ebd-43cc-93cd-085d3875e393" >
 
 ## Installation
 
 Install my-project with pnpm
 
 ```bash
-  git clone https://github.com/code-yy/yutodev.git
+  git clone https://github.com/yossydev/blog.git
 
-  cd yutodev
+  cd blog
 
   pnpm install
 
@@ -18,6 +18,11 @@ Install my-project with pnpm
 
 ## Tech Stack
 
-**Client:** React, Next.js, TypeScript, Mantine, TailwindCSS, pathpida, Prettier, ESLint
-
-**Server:** microCMS
+- [React](https://nextjs.org/)
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Mantine](https://mantine.dev/)
+- [Prettier](https://prettier.io/)
+- [ESLint](https://eslint.org/)
+- [Zenn Editor](https://github.com/zenn-dev/zenn-editor)
+- [Turborepo](https://turbo.build/repo)
