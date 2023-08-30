@@ -1,14 +1,12 @@
-import { AppShell } from "@mantine/core";
 import { FC, ReactNode, useEffect, useState } from "react";
 import { Header } from "../Header";
-import { useStyles } from "./elements";
+import { root, body, main } from "./styles.css";
 
 type Props = {
   children: ReactNode;
 };
 
 export const MainLayout: FC<Props> = ({ children }) => {
-  const { classes } = useStyles();
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -20,15 +18,11 @@ export const MainLayout: FC<Props> = ({ children }) => {
   }
 
   return (
-    <AppShell
-      header={<Header />}
-      classNames={{
-        root: classes.root,
-        body: classes.body,
-        main: classes.main,
-      }}
-    >
-      {children}
-    </AppShell>
+    <div className={root}>
+      <div className={body}>
+        <Header />
+        <main className={main}>{children}</main>
+      </div>
+    </div>
   );
 };

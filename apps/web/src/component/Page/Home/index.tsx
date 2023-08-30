@@ -1,5 +1,4 @@
-import { FC, memo } from "react";
-import { Box } from "@mantine/core";
+import { FC } from "react";
 import { Headline } from "@/component/Core/Headline";
 import { Post } from "@/lib/api";
 import { Profile } from "./Profile";
@@ -10,12 +9,12 @@ type Props = {
   posts: Post[];
 };
 
-export const Home: FC<Props> = memo(({ posts }) => {
+export const Home: FC<Props> = ({ posts }) => {
   return (
     <>
       <Profile />
 
-      <Box className={box} />
+      <div className={box} />
 
       {/* タイトル */}
       <Headline title={"Blog Posts"} urlTitle={"blog-posts"} />
@@ -29,6 +28,4 @@ export const Home: FC<Props> = memo(({ posts }) => {
       </div>
     </>
   );
-});
-
-Home.displayName = "Memo(Home)";
+};
