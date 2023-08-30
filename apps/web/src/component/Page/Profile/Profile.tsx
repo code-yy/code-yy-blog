@@ -1,10 +1,9 @@
 import { FC, memo } from "react";
-import { List } from "@mantine/core";
 import { Headline } from "@/component/Core/Headline";
 import { AppLink } from "@/component/Core";
 import { Text } from "./Text/Text";
 import { SnsList } from "./constants";
-import { line, link, linkContainer, resumeLinkContainer } from "./styles.css";
+import { circleStyle, line, link, liStyle, resumeLinkContainer, ulStyle } from "./styles.css";
 
 export const Profile: FC = memo(() => {
   return (
@@ -37,15 +36,16 @@ export const Profile: FC = memo(() => {
 
       {/* border */}
       <div className={line} />
-      <List className={linkContainer}>
+      <ul className={ulStyle}>
         {SnsList.map(({ id, title, href }) => (
-          <List.Item key={`${id}-${title}`}>
+          <li key={`${id}-${title}`} className={liStyle}>
+            <div className={circleStyle} />
             <AppLink href={href} className={link}>
               {title}
             </AppLink>
-          </List.Item>
+          </li>
         ))}
-      </List>
+      </ul>
     </>
   );
 });

@@ -5,16 +5,30 @@ export const line = style({
   borderBottom: "1px solid #111827",
 });
 
-export const linkContainer = style({
-  marginTop: "24px",
+export const ulStyle = style({
   fontSize: "18px",
-  fontWeight: 500,
+  listStyle: "none",
+  padding: "0",
 });
 
 export const resumeLinkContainer = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "end",
+});
+
+export const liStyle = style({
+  display: "flex",
+  alignItems: "center",
+  padding: "5px 0",
+});
+
+export const circleStyle = style({
+  width: "10px",
+  height: "10px",
+  borderRadius: "50%",
+  background: "#000",
+  marginRight: "10px",
 });
 
 export const link = style({
