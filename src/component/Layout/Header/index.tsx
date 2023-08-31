@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { BsGithub, BsTwitter } from "react-icons/bs";
-import { pagesPath } from "@/lib/$path";
 import { LINK } from "@/constant/link";
 import { AppLink } from "@/component/Core";
 import { container, wrapper, title, iconsContainer, icon } from "./styles.css";
@@ -9,7 +8,7 @@ export const Header: FC = () => {
   return (
     <div className={container}>
       <div className={wrapper}>
-        <AppLink href={pagesPath.$url()} className={title}>
+        <AppLink href={"/"} className={title}>
           Yuto Blog
         </AppLink>
 
