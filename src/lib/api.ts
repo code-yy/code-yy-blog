@@ -20,7 +20,7 @@ export type Post = {
 };
 
 type GetPostBySlugParams = { slug: string; fields: string[] };
-type GetPostBySlugResponse = { [key: string]: string };
+type GetPostBySlugResponse = { [key: string]: any };
 
 function formatFields(
   data: { [key: string]: string },
@@ -48,7 +48,7 @@ function formatFields(
   return items;
 }
 
-export function getPostBySlug<T>({ slug, fields }: GetPostBySlugParams): T {
+export function getPostBySlug<T extends GetPostBySlugResponse>({ slug, fields }: GetPostBySlugParams): T {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -61,10 +61,11 @@ export function getPostBySlug<T>({ slug, fields }: GetPostBySlugParams): T {
 
 export function getAllPosts(fields: string[] = []): Post[] {
   const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug<Post>({ slug, fields }))
-    .filter((post) => post.published)
-    // 日付の新しい順にソートする
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
-  return posts;
+  return (
+    slugs
+      .map((slug) => getPostBySlug<Post>({ slug, fields }))
+      .filter((post) => post.published)
+      // 日付の新しい順にソートする
+      .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+  );
 }
