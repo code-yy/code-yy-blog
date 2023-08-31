@@ -7,9 +7,9 @@ const MIN_TITLE_LENGTH = 1;
 const MIN_EMOJI_LENGTH = 1;
 const MIN_OGIMAGE_LENGTH = 1;
 
-const POSTS_DIR = "./apps/web/posts";
+const POSTS_DIR = "./posts";
 const __dirname = resolve();
-const templatePath = join(__dirname, "./apps/web/src/lib/util/post/template.md");
+const templatePath = join(__dirname, "./src/lib/util/post/template.md");
 
 const rl = createInterface({
   input: process.stdin,

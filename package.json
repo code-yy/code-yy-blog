@@ -1,32 +1,45 @@
 {
-  "name": "oprol-tela",
+  "name": "yutodev",
+  "description": "a next.js blog of yuto",
   "version": "0.1.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "engines": {
-    "node": "18.x",
-    "pnpm": "<=8.0.0"
+    "node": "18.x"
   },
-  "packageManager": "pnpm@8.0.0",
   "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "start": "turbo run start",
-    "lint": "turbo run lint",
-    "lint:fix": "turbo run lint -- --fix",
+    "dev": "NEXT_PUBLIC_APP_ENV=local run-p dev:*",
+    "dev:next": "next dev",
+    "dev:path": "pathpida --enableStatic --watch",
+    "build": "NEXT_PUBLIC_APP_ENV=production pathpida --enableStatic && next build",
+    "start": "NEXT_PUBLIC_APP_ENV=production next start -p 1000",
+    "lint": "next lint",
     "format": "prettier --check './{bin,lib,src,tests}/**/*.{ts,tsx}'",
     "typecheck": "tsc -p . --noEmit",
-    "create:post": "node ./apps/web/src/lib/util/post/generate-post.mjs"
+    "create:post": "node ./src/lib/util/post/generate-post.mjs"
+  },
+  "dependencies": {
+    "@vanilla-extract/css": "^1.11.0",
+    "@vanilla-extract/next-plugin": "^2.1.2",
+    "gray-matter": "^4.0.3",
+    "next": "v13.1.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.7.1",
+    "zenn-content-css": "^0.1.142",
+    "zenn-embed-elements": "^0.1.142",
+    "zenn-markdown-html": "^0.1.142"
   },
   "devDependencies": {
-    "@turbo/gen": "^1.10.6",
     "@types/node": "17.0.35",
+    "@types/react": "18.0.9",
+    "@types/react-dom": "18.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
     "eslint": "8.16.0",
-    "prettier": "^2.8.8",
-    "scaffdog": "2.5.0",
-    "turbo": "^1.10.12",
+    "eslint-import-resolver-typescript": "3.6.0",
+    "eslint-config-next": "13.0.3",
+    "eslint-plugin-import": "^2.26.0",
+    "npm-run-all": "^4.1.5",
+    "pathpida": "^0.18.1",
     "typescript": "^4.7.2"
   }
 }
