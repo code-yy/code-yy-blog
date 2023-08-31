@@ -1,5 +1,5 @@
 node_modules/
-!.eslintrc.js
-!.prettierrc.js
+.eslintrc.js
+.prettierrc.js
 tailwind.config.js
 postcss.config.js
