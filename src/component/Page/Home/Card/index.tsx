@@ -11,7 +11,7 @@ type Props = {
 
 export const BlogCard: FC<Props> = ({ post }) => {
   return (
-    <AppLink href={pagesPath.posts._slug(post.slug).$url()}>
+    <AppLink href={`/posts/${post.slug}`}>
       <div className={paper}>
         <p className={postCardEmoji} dangerouslySetInnerHTML={{ __html: post.emoji }}></p>
 
