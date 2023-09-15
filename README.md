@@ -7,13 +7,13 @@
 Install my-project with pnpm
 
 ```bash
-  git clone https://github.com/yossydev/blog.git
+$ git clone https://github.com/yossydev/blog.git
 
-  cd blog
+$ cd blog
 
-  pnpm install
+$ pnpm install
 
-  pnpm dev
+$ pnpm dev
 ```
 
 ## Tech Stack
