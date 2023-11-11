@@ -22,16 +22,16 @@ export const postCardEmoji = style({
   alignItems: "center",
   justifyContent: "center",
   margin: 0,
-  width: "90px",
-  height: "90px",
+  minWidth: "90px",
+  minHeight: "90px",
   background: "gray",
   borderRadius: "12px",
   fontSize: "50px",
 
   "@media": {
     "screen and (max-width: 768px)": {
-      width: "70px",
-      height: "70px",
+      minWidth: "70px",
+      minHeight: "70px",
     },
   },
 });

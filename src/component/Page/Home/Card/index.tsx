@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { AppLink } from "@/component/Core";
-import { pagesPath } from "@/lib/$path";
 import { format } from "@/lib/util/date";
 import { Post } from "@/lib/api";
 import { createdAt, infoContainer, paper, postCardEmoji, title } from "./styles.css";
