@@ -67,7 +67,7 @@ I plan to implement these at some point.
 
 In my second year as an engineer, I was finally able to release my first OSS.
 I'm very happy that several people have already starred it since I announced it on Twitter.
-https://t.co/UGgh9YuJqw
+https://x.com/yossydev/status/1718566318046417362?s=20
 Recently, I've been raising issues and leaving comments on OSS, and I feel that my activities are expanding.
 I will continue to do my best in the future!!
 Thank you for reading to the end!! ❤️🫡
