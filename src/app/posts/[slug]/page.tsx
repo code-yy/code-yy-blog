@@ -44,6 +44,7 @@ export const generateMetadata = async ({
       title: blog.title,
       description: blog.content,
       images: [blog.ogImage ?? "/noimage.png"],
+      card: "summary",
     },
   };
 };
