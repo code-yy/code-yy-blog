@@ -21,8 +21,6 @@ $ pnpm dev
 - [React](https://nextjs.org/)
 - [Next.js](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Mantine](https://mantine.dev/)
 - [Prettier](https://prettier.io/)
 - [ESLint](https://eslint.org/)
 - [Zenn Editor](https://github.com/zenn-dev/zenn-editor)
-- [Turborepo](https://turbo.build/repo)
