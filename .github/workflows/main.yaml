@@ -1,26 +1,14 @@
-name: Main Action
-
-on:
-  push:
-    workflow_call:
-    inputs:
-      username:
-        required: true
-        type: string
-    secrets:
-      token:
-        required: true
-
+name: Lint
+on: [pull_request]
 jobs:
-  build:
+  ESLint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.2.2
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
         with:
-          version: 8.0.0
-      - run: pnpm i --frozen-lockfile
-
-      # ESLint
-      - name: Install ESLint
-        run: pnpm lint
+          node-version: 16
+      - name: Run ESLint
+        run: |
+          npx eslint '**/*.js'
