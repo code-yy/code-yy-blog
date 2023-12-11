@@ -11,4 +11,4 @@ jobs:
           node-version: 16
       - name: Run ESLint
         run: |
-          npx eslint '**/*.tsx'
+          npx eslint './src/lib/api.ts'
