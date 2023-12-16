@@ -8,11 +8,8 @@ Install my-project with pnpm
 
 ```bash
 $ git clone https://github.com/yossydev/blog.git
-
 $ cd blog
-
 $ pnpm install
-
 $ pnpm dev
 ```
 
