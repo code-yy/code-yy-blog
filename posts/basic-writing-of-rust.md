@@ -2,7 +2,7 @@
 title: "Rustプログラミング入門 ~基本的な文法~"
 emoji: "🦀"
 date: "2023/07/05"
-published: true
+published: false
 ---
 
 ## 感想
