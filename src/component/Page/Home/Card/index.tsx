@@ -11,7 +11,7 @@ type Props = {
 export const BlogCard: FC<Props> = ({ post }) => {
   return (
     <h3 className={container}>
-      {format(post.date)}:
+      {format(post.date)}:{" "}
       <AppLink href={`/posts/${post.slug}`} className={link}>
         {post.title}
       </AppLink>
