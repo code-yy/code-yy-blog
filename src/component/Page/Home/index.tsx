@@ -9,7 +9,21 @@ type Props = {
   posts: Post[];
 };
 
+const FIRST_BLOG_POST_YEAR = 2021;
+
 export const Home: FC<Props> = ({ posts }) => {
+  // 年ごとのブログ投稿
+  const yearlyBlogs = () => {
+    const blogData = [];
+    const thisYear = new Date().getFullYear();
+    for (let year = FIRST_BLOG_POST_YEAR; year <= thisYear; year++) {
+      const arrBlog = posts.filter((blog) => blog.date.indexOf(`${year}`) === 0);
+
+      blogData.push(arrBlog);
+    }
+    return blogData;
+  };
+
   return (
     <>
       <Profile />
@@ -17,14 +31,23 @@ export const Home: FC<Props> = ({ posts }) => {
       <div className={box} />
 
       {/* タイトル */}
-      <Headline title={"Blog Posts"} urlTitle={"blog-posts"} />
+      <Headline title={"Posts"} urlTitle={"posts"} />
 
       {/* ブログ */}
       <div className={blogContainer}>
-        {posts.map((post, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <BlogCard key={`${post.title}-${index}`} post={post} />
-        ))}
+        {yearlyBlogs()
+          .reverse()
+          .map((blogs) => {
+            const year = blogs[0]?.date.substring(0, 4) ?? "";
+            return (
+              <>
+                <h2>{year}</h2>
+                {blogs.map((post) => (
+                  <BlogCard key={post.slug} post={post} />
+                ))}
+              </>
+            );
+          })}
       </div>
     </>
   );
