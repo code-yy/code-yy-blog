@@ -10,7 +10,7 @@ published: true
 
 https://adventar.org/calendars/7752
 
-現在 21 歳で、エンジニアとして働いているユウト（[@codeyy_dev](https://twitter.com/codeyy_dev)）です。
+現在 22 歳で、エンジニアとして働いているユウト（[@codeyy_dev](https://twitter.com/codeyy_dev)）です。
 
 業務外では、[つながる勉強会](https://tsunagaru-kobe.connpass.com/)という勉強会の運営者をしていたり、TechUni というプログラミングサークルに所属していたりしています。
 

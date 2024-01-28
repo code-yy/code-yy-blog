@@ -10,9 +10,7 @@ export const Profile: FC = () => {
       <Headline title={"Hi! I'm Yuto"} urlTitle={"hi-im-yuto-yoshino"} />
 
       <div className={text}>
-        {
-          "21歳のフロントエンドエンジニア。TypeScript, Reactを主に触っており、最近ではWebパフォーマンス / フロントエンドテスト / DXに興味があります。"
-        }
+        {"都内在住の22歳のエンジニアです。Webパフォーマンス / Developer Experienceの向上に興味があります。"}
         <AppLink href={pagesPath.profile.$url()} className={link}>
           Read more →
         </AppLink>

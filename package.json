@@ -2,12 +2,6 @@
   "name": "yutodev",
   "description": "a next.js blog of yuto",
   "version": "0.1.0",
-  "engines": {
-    "node": "18.18.0"
-  },
-  "volta": {
-    "node": "18.18.0"
-  },
   "scripts": {
     "dev": "next dev",
     "dev:path": "pathpida --enableStatic --watch",
