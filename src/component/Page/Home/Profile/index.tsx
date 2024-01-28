@@ -11,7 +11,7 @@ export const Profile: FC = () => {
 
       <div className={text}>
         {
-          "21歳のフロントエンドエンジニア。TypeScript, Reactを主に触っており、最近ではWebパフォーマンス / フロントエンドテスト / DXに興味があります。"
+          "22歳のフロントエンドエンジニア。TypeScript, Reactを主に触っており、最近ではWebパフォーマンス / フロントエンドテスト / DXに興味があります。"
         }
         <AppLink href={pagesPath.profile.$url()} className={link}>
           Read more →
