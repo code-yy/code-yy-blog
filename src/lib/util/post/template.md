@@ -1,7 +1,7 @@
 ---
 title: "{{title}}"
 emoji: "{{emoji}}"
-ogImage: "{{ogImage}}"
+description: "{{description}}"
 date: "{{date}}"
 published: false
 ---

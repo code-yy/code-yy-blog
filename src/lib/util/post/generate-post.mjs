@@ -5,8 +5,7 @@ import { createInterface } from "readline";
 
 const MIN_TITLE_LENGTH = 1;
 const MIN_EMOJI_LENGTH = 1;
-const MIN_OGIMAGE_LENGTH = 1;
-
+const MIN_DESCRIPTION_LENGTH = 1; // 最低限の説明文の長さを設定
 const POSTS_DIR = "./posts";
 const __dirname = resolve();
 const templatePath = join(__dirname, "./src/lib/util/post/template.md");
@@ -16,6 +15,9 @@ const rl = createInterface({
   output: process.stdout,
 });
 
+/**
+ * Main function to generate a new blog post.
+ */
 function generatePost() {
   function askTitle() {
     rl.question("title: ", (title) => {
@@ -31,56 +33,48 @@ function generatePost() {
   function askEmoji(title) {
     rl.question("emoji: ", (emoji) => {
       if (emoji.length < MIN_EMOJI_LENGTH) {
-        console.error("絵文字を入力してください");
+        console.error("Please enter an emoji");
         askEmoji(title);
       } else {
-        askOGImage(title, emoji);
+        askDescription(title, emoji);
       }
     });
   }
 
-  function askOGImage(title, emoji) {
-    rl.question("ogImage (input will be prefixed with /ogp/): ", (ogImage) => {
-      if (ogImage.length < MIN_OGIMAGE_LENGTH) {
-        console.error("Please enter a pictogram");
-        askOGImage(title, emoji);
+  /**
+   * Asks the user for the description of the post and validates the input.
+   */
+  function askDescription(title, emoji) {
+    rl.question("description: ", (description) => {
+      if (description.length < MIN_DESCRIPTION_LENGTH) {
+        console.error("Please enter a description");
+        askDescription(title, emoji);
       } else {
-        askDate(title, emoji, `/ogp/${ogImage}`);
+        askFilePath(title, emoji, description);
       }
     });
   }
 
-  function askDate(title, emoji, ogImage) {
-    rl.question("date(YYYY/MM/DD, leave blank for today's date): ", (date) => {
-      const datePattern = /^\d{4}\/\d{2}\/\d{2}$/;
-      if (date.trim() === "") {
-        date = new Date().toISOString().slice(0, 10).replace(/-/g, "/");
-        console.log(
-          `You didn't enter a date. Today's date, ${date}, will be used. If this is not correct, please terminate the program and start again.`
-        );
-      } else if (!datePattern.test(date)) {
-        console.error("Please enter the date in the format YYYYY/MM/DD");
-        askDate(title, emoji, ogImage);
-        return;
-      }
-      askFilePath(title, emoji, ogImage, date);
-    });
-  }
-
-  function askFilePath(title, emoji, ogImage, date) {
+  /**
+   * Asks the user for the file path where the post should be saved.
+   * Uses a generated filename based on the date if the input is left blank.
+   */
+  function askFilePath(title, emoji, description) {
     rl.question("filepath (leave blank for default): ", (inputPath) => {
       let filename;
       if (inputPath.trim() === "") {
+        const date = new Date().toISOString().slice(0, 10).replace(/-/g, "/");
         filename = `generated-post-${date.replace(/\//g, "-")}.md`;
       } else {
         filename = `${inputPath}.md`;
       }
-      writePost(title, emoji, ogImage, date, filename);
+      writePost(title, emoji, description, filename);
     });
   }
 
-  function writePost(title, emoji, ogImage, date, filename) {
+  function writePost(title, emoji, description, filename) {
     const filePath = join(__dirname, `${POSTS_DIR}/${filename}`);
+
     readFile(templatePath, "utf8", (err, data) => {
       if (err) {
         throw err;
@@ -88,17 +82,18 @@ function generatePost() {
       data = data
         .replace("{{title}}", title)
         .replace("{{emoji}}", emoji)
-        .replace("{{date}}", date)
-        .replace("{{ogImage}}", ogImage);
+        .replace("{{description}}", description) // 説明文をテンプレートに追加
+        .replace("{{filePath}}", filename); // ファイルパスをテンプレートに追加
       writeFile(filePath, data, (err) => {
         if (err) {
           throw err;
         }
-        console.log(`🎉Successfully created ${filename}!🎉`);
+        console.log(`🎉Successfully created ${filename} with description!🎉`);
         rl.close();
       });
     });
   }
+
   askTitle();
 }
 
