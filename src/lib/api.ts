@@ -12,6 +12,7 @@ export type Post = {
   title: string;
   date: string;
   slug: string;
+  description: string;
   emoji: string;
   content: string;
   ogImage: string;
@@ -26,7 +27,7 @@ function formatFields(
   data: { [key: string]: string },
   content: string,
   realSlug: string,
-  fields: string[]
+  fields: string[],
 ): GetPostBySlugResponse {
   /**
    * 必要最低限のデータだけ返却する

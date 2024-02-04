@@ -9,7 +9,7 @@ import { Post, getPostBySlug } from "@/lib/api";
 const getStaticPostBySlug = async ({ params }: { params: string }) => {
   const post = getPostBySlug<Post>({
     slug: params,
-    fields: ["title", "slug", "content", "ogImage", "coverImage", "published"],
+    fields: ["title", "description", "slug", "content", "ogImage", "coverImage", "published"],
   });
 
   const content = markdownToHtml((post && post.content) || "", {
@@ -34,16 +34,16 @@ export const generateMetadata = async ({
   const { blog } = await getStaticPostBySlug({ params: params.slug });
   return {
     title: blog.title,
-    description: blog.content,
+    description: blog.description,
     openGraph: {
       title: blog.title,
-      description: blog.content,
-      images: [blog.ogImage ?? "/noimage.png"],
+      description: blog.description,
+      images: [blog.emoji ?? "/noimage.png"],
     },
     twitter: {
       title: blog.title,
-      description: blog.content,
-      images: [blog.ogImage ?? "/noimage.png"],
+      description: blog.description,
+      images: [blog.emoji ?? "/noimage.png"],
       card: "summary",
     },
   };
