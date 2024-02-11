@@ -38,12 +38,12 @@ export const generateMetadata = async ({
     openGraph: {
       title: blog.title,
       description: blog.description,
-      images: [blog.emoji ?? "/noimage.png"],
+      images: ["/ogp/profile-image.png" ?? "/noimage.png"],
     },
     twitter: {
       title: blog.title,
       description: blog.description,
-      images: [blog.emoji ?? "/noimage.png"],
+      images: ["/ogp/profile-image.png" ?? "/noimage.png"],
       card: "summary",
     },
   };
