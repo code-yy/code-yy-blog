@@ -262,10 +262,9 @@ rejectされることがないので、try catchを使う必要はないです�
 
 ## 参考
 
-- 【JavaScript】ES2024の新機能まとめ: https://qiita.com/rana_kualu/items/16539958b0c9d3b3dba8
-- ES2024: https://github.com/tc39/ecma262/releases/tag/es2024-candidate-2024-02
-- Atomicsオブジェクト: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics
-- https://github.com/tc39/proposal-atomics-wait-async/blob/master/PROPOSAL.md
-- SharedArrayBuffer: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer
+- [【JavaScript】ES2024の新機能まとめ](https://qiita.com/rana_kualu/items/16539958b0c9d3b3dba8)
+- [ES2024 Release](https://github.com/tc39/ecma262/releases/tag/es2024-candidate-2024-02)
+- [Atomicsオブジェクト](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics)
+- [SharedArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)
 - [【JavaScript】 SharedArrayBufferの使い方とブラウザでの制限](https://note.affi-sapo-sv.com/js-sharedarraybuffer.php)
-- v8 blog: https://v8.dev/features/atomics
+- [v8 blog](https://v8.dev/features/atomics)
